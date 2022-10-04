@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Pomos</string>
+    <string name="add_tarefa">Adicionar tarefa</string>
 </resources>
