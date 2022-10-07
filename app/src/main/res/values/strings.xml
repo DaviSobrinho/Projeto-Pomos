@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">Pomos</string>
     <string name="add_tarefa">Adicionar tarefa</string>
+    <string name="nome_tarefa">Nome da tarefa</string>
+    <string name="descrição">Descrição</string>
+    <string name="add_a_projeto">Adicionar a projeto</string>
+    <string name="prioridade">Prioridade</string>
+    <string name="pomodoros">Pomodoros</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="criar_tarefa">Criar tarefa</string>
+
 </resources>

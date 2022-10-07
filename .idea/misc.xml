@@ -3,17 +3,30 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Administrator/.gradle/caches/transforms-3/84d164a6cd98f245361f5b4b77cf2a53/transformed/appcompat-1.5.1/res/layout/support_simple_spinner_dropdown_item.xml" value="0.1956521739130435" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.182" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/add_background.xml" value="0.182" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/add_foreground.xml" value="0.182" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/down_arrow_background.xml" value="0.182" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/flag_background.xml" value="0.182" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/flag_foreground.xml" value="0.136" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/ic_launcher_background.xml" value="0.182" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/menu_background.xml" value="0.182" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/menu_foreground.xml" value="0.136" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/redflag.xml" value="0.182" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/redflag_foreground.xml" value="0.136" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/round_outline.xml" value="0.182" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/settings_background.xml" value="0.136" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/settings_foreground.xml" value="0.136" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout-v31/dialog_add_tarefa.xml" value="0.12552083333333333" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout/dialog_add_tarefa.xml" value="0.33" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout/dialog_add_tarefa.xml" value="0.16" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout/spinner_dropdown.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout/spinner_red.xml" value="0.34527687296416937" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/menu/main_menu.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/mipmap-anydpi-v26/flag.xml" value="0.136" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/mipmap-anydpi-v26/flag_round.xml" value="0.136" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/mipmap-anydpi-v26/menu.xml" value="0.136" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/mipmap-anydpi-v26/settings2_round.xml" value="0.136" />
       </map>
     </option>
