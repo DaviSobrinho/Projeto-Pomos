@@ -87,7 +87,7 @@
         android:textColor="@color/grey"
         android:textSize="18sp">
     </TextView>
-    <LinearLayout
+    <androidx.recyclerview.widget.RecyclerView
         app:layout_constraintTop_toBottomOf="@id/button_1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -97,7 +97,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    </LinearLayout>
+    </androidx.recyclerview.widget.RecyclerView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

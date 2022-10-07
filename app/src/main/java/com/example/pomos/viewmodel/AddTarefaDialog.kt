@@ -14,16 +14,14 @@ import android.text.TextWatcher
 import android.view.*
 import android.view.inputmethod.InputMethodManager
 import android.view.inputmethod.InputMethodManager.SHOW_IMPLICIT
-import android.widget.ArrayAdapter
-import android.widget.ImageButton
-import android.widget.Spinner
-import android.widget.Toast
+import android.widget.*
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.DialogFragment
 import com.example.pomos.R
 import com.example.pomos.databinding.DialogAddTarefaBinding
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
+import kotlinx.coroutines.NonDisposableHandle.parent
 
 
 private var _binding: DialogAddTarefaBinding? = null
@@ -48,18 +46,20 @@ class AddTarefaDialog : DialogFragment() {
             configuraBotaoLapis(binding.imagebutton3, binding.textinputedittext2)
             configuraSpinner(binding.spinner1,requireContext(), listOf("Adicionar ao projeto:","Projeto 1", "Projeto 2"))
             configuraBotaoSpinner(binding.imagebutton4,binding.spinner1)
-            configuraSpinnerImagem(binding.spinner2,requireContext(), listOf("Alta","Média","Baixa"))
+            configuraSpinner(binding.spinner2,requireContext(), listOf("Prioridade:","Alta","Média","Baixa"))
             configuraBotaoSpinner(binding.imagebutton5,binding.spinner2)
             configuraBotaoContador(binding.imagebutton6, binding.textinputedittext3, true)
             configuraBotaoContador(binding.imagebutton7, binding.textinputedittext3, false)
             corrigePomodoros(binding.textinputedittext3)
             configuraBotaoSair(binding.imagebutton1)
             configuraBotaoCancelar(binding.materialbutton1)
+            configuraImagemSpiner(binding.imagebutton8,binding.spinner2)
         }
         override fun onDestroyView() {
             super.onDestroyView()
             _binding = null
         }
+
         private fun corrigePomodoros (textInputEditText: TextInputEditText){
             binding.textinputedittext3.addTextChangedListener(object : TextWatcher {
                 override fun afterTextChanged(s: Editable?) {
@@ -136,9 +136,28 @@ class AddTarefaDialog : DialogFragment() {
             val arrayAdapter = ArrayAdapter(context, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, list)
             spinner.adapter = arrayAdapter
         }
-        private fun configuraSpinnerImagem(spinner: Spinner, context: Context, list: List<String>){
-            val arrayAdapter = ArrayAdapter(context, R.layout.add_tarefa_dialog_spinner_layout,R.id.add_tarefa_dialog_textview_1,list)
-            spinner.adapter = arrayAdapter
+        private fun configuraImagemSpiner(imageButton: ImageButton, spinner: Spinner){
+            imageButton.setOnClickListener(){
+                configuraBotaoSpinner(imageButton,spinner)
+            }
+            var spinnerString = spinner.selectedItem.toString()
+            spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+                override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+                    spinnerString = spinner.selectedItem.toString()
+                    if (spinnerString == "Alta"){
+                        imageButton.setImageResource(R.drawable.redflag_foreground)
+                        Toast.makeText(requireContext(), "teste", Toast.LENGTH_SHORT).show()
+                    }
+                    if (spinnerString == "Média"){
+                        imageButton.setImageResource(R.drawable.yellowflag_foreground)
+                    }
+                    if (spinnerString == "Baixa"){
+                        imageButton.setImageResource(R.drawable.greenflag_foreground)
+                    }
+                }
+                override fun onNothingSelected(p0: AdapterView<*>?) {
+                }
+            }
         }
         private fun configuraBotaoSair(button: ImageButton){
             button.setOnClickListener {

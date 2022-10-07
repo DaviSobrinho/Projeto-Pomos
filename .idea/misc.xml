@@ -19,8 +19,10 @@
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/settings_background.xml" value="0.136" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/settings_foreground.xml" value="0.136" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout-v31/dialog_add_tarefa.xml" value="0.12552083333333333" />
-        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout/dialog_add_tarefa.xml" value="0.16" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout/activity_main.xml" value="0.18" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout/add_tarefa_dialog_spinner_layout.xml" value="0.22" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout/dialog_add_tarefa.xml" value="0.3814814814814815" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout/scrollview_activity_main.xml" value="0.33" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout/spinner_dropdown.xml" value="0.1956521739130435" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout/spinner_red.xml" value="0.34527687296416937" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/menu/main_menu.xml" value="0.27291666666666664" />

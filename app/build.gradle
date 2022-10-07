@@ -35,6 +35,10 @@ android {
 }
 
 dependencies {
+    apply plugin: 'kotlin-kapt'
+    implementation("androidx.room:room-runtime:2.4.3")
+    annotationProcessor("androidx.room:room-compiler:2.4.3")
+    kapt("androidx.room:room-compiler:2.4.3")
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
