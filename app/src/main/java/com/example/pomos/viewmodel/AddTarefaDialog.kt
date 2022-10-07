@@ -1,21 +1,23 @@
 package com.example.pomos.viewmodel
 
+import android.accessibilityservice.AccessibilityService
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Context
 import android.content.Context.INPUT_METHOD_SERVICE
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.hardware.input.InputManager
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.view.inputmethod.InputMethodManager
 import android.view.inputmethod.InputMethodManager.SHOW_IMPLICIT
 import android.widget.ArrayAdapter
 import android.widget.ImageButton
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.DialogFragment
 import com.example.pomos.R
@@ -37,6 +39,7 @@ class AddTarefaDialog : DialogFragment() {
         }
 
         override fun onStart() {
+            dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             super.onStart()
             val width = (resources.displayMetrics.widthPixels * 0.90).toInt()
             val height = (resources.displayMetrics.heightPixels * 0.80).toInt()
@@ -57,7 +60,7 @@ class AddTarefaDialog : DialogFragment() {
             super.onDestroyView()
             _binding = null
         }
-        fun corrigePomodoros (textInputEditText: TextInputEditText){
+        private fun corrigePomodoros (textInputEditText: TextInputEditText){
             binding.textinputedittext3.addTextChangedListener(object : TextWatcher {
                 override fun afterTextChanged(s: Editable?) {
 
@@ -116,10 +119,12 @@ class AddTarefaDialog : DialogFragment() {
         private fun configuraBotaoLapis(button: ImageButton, textInputEditText: TextInputEditText){
             button.setOnClickListener {
                 textInputEditText.requestFocus()
-                val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-                if( !imm.isActive){
-                    imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0)
+                if(textInputEditText.hasFocus()){
+                    dialog?.window?.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE)
                 }
+                val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 1)
+                imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 2)
             }
         }
         private fun configuraBotaoSpinner(button: ImageButton, spinner: Spinner){
