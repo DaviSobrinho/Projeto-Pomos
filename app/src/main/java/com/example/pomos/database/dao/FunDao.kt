@@ -1,13 +1,11 @@
 package com.example.pomos.database.dao
 
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
-import androidx.room.Update
+import androidx.room.*
 import com.example.pomos.database.model.Tarefa
-
+@Dao
 
 interface FunDao {
+
     @Query("SELECT * FROM Tarefa")
     fun queryAllTarefa() :List<Tarefa>
 
