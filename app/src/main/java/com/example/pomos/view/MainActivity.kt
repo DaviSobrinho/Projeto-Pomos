@@ -1,7 +1,6 @@
 package com.example.pomos.view
 
 import android.os.Bundle
-import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        iniciaDialog(binding.activityMainMaterialbutton1,AddTarefaDialog())
+        iniciaDialogMaterialButton(binding.activityMainMaterialbutton1,AddTarefaDialog())
         configuraRecyclerView()
     }
     fun configuraRecyclerView(){
@@ -31,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
     }
-    fun iniciaDialog(materialButton: MaterialButton,dialogFragment: DialogFragment){
+    fun iniciaDialogMaterialButton(materialButton: MaterialButton, dialogFragment: DialogFragment){
         materialButton.setOnClickListener(){
             dialogFragment.show(supportFragmentManager, "CustomFragment")
         }
