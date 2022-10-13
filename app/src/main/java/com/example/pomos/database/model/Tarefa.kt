@@ -5,7 +5,6 @@ import androidx.room.PrimaryKey
 
 @Entity
 class Tarefa(
-    @PrimaryKey (autoGenerate = true)val id: Int,
     @PrimaryKey val nome : String,
     val descricao : String,
     val projeto : String,

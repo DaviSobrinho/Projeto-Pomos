@@ -1,28 +1,23 @@
-package com.example.pomos.viewmodel
+package com.example.pomos.view
 
-import android.accessibilityservice.AccessibilityService
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Context
-import android.content.Context.INPUT_METHOD_SERVICE
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
-import android.hardware.input.InputManager
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.*
 import android.view.inputmethod.InputMethodManager
-import android.view.inputmethod.InputMethodManager.SHOW_IMPLICIT
 import android.widget.*
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.DialogFragment
 import com.example.pomos.R
+import com.example.pomos.database.AppDatabase
+import com.example.pomos.database.model.Tarefa
 import com.example.pomos.databinding.DialogAddTarefaBinding
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
-import kotlinx.coroutines.NonDisposableHandle.parent
-
 
 private var _binding: DialogAddTarefaBinding? = null
 private val binding get() = _binding!!
@@ -35,7 +30,6 @@ class AddTarefaDialog : DialogFragment() {
                 .setView(binding.root)
                 .create()
         }
-
         override fun onStart() {
             dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             super.onStart()
@@ -54,12 +48,12 @@ class AddTarefaDialog : DialogFragment() {
             configuraBotaoSair(binding.imagebutton1)
             configuraBotaoCancelar(binding.materialbutton1)
             configuraImagemSpiner(binding.imagebutton8,binding.spinner2)
+            salvaTarefa()
         }
         override fun onDestroyView() {
             super.onDestroyView()
             _binding = null
         }
-
         private fun corrigePomodoros (textInputEditText: TextInputEditText){
             binding.textinputedittext3.addTextChangedListener(object : TextWatcher {
                 override fun afterTextChanged(s: Editable?) {
@@ -182,5 +176,40 @@ class AddTarefaDialog : DialogFragment() {
                 }
             }
 
+        }
+        private fun salvaTarefa() {
+            val db = AppDatabase.instancia(requireContext())
+            binding.materialbutton2.setOnClickListener() {
+                val nome = binding.textinputedittext1.text.toString()
+                val descricao = binding.textinputedittext2.text.toString()
+                val projeto = binding.spinner1.selectedItem.toString()
+                val prioridade = binding.spinner2.selectedItem.toString()
+                val pomodoros = binding.textinputedittext3.text.toString().toInt()
+                try{
+                    val tarefa = db.funDao().queryTarefaByName(nome)
+                    db.funDao().insertTarefa(Tarefa(
+                            nome = nome,
+                            pomodoros = pomodoros,
+                            projeto = projeto,
+                            descricao = descricao,
+                            prioridade = prioridade
+                        )
+                    )
+                    Toast.makeText(requireContext(), "Tarefa criada!!", Toast.LENGTH_SHORT).show()
+                    if (dialog?.isShowing == true) {
+                        dialog?.dismiss()
+                    }
+                    val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                    if(!imm.isActive){
+                        imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
+                    }
+                }catch(exception : Exception) {
+                    Toast.makeText(
+                        requireContext(),
+                        "Já existe uma tarefa com esse nome, tente outro!!",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
         }
 }

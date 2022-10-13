@@ -6,6 +6,7 @@
     android:layout_height="match_parent">
 
     <ImageButton
+        android:id="@+id/activity_main_imagebutton_1"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginStart="20dp"
@@ -18,6 +19,7 @@
         app:tint="@color/grey">
     </ImageButton>
     <TextView
+        android:id="@+id/recyclerview_activity_main_textview_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -30,6 +32,7 @@
         android:textSize="28sp">
     </TextView>
     <ImageButton
+        android:id="@+id/activity_main_imagebutton_2"
         android:clickable="true"
         android:layout_width="40dp"
         android:layout_height="40dp"
@@ -43,10 +46,10 @@
     </ImageButton>
 
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:backgroundTint="@color/white"
         android:textColor="@color/grey"
-        android:id="@+id/button_1"
+        android:id="@+id/activity_main_materialbutton_1"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="250dp"
@@ -57,11 +60,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:cornerRadius="50dp">
-    </Button>
+    </com.google.android.material.button.MaterialButton>
     <ImageView
         android:contentDescription="@string/add_tarefa"
         android:clickable="true"
-        android:id="@+id/imageview"
+        android:id="@+id/activity_main_imageview2"
         android:layout_width="40dp"
         android:layout_height="40dp"
         android:layout_marginStart="10dp"
@@ -69,33 +72,35 @@
         android:backgroundTint="@color/white"
         android:elevation="10dp"
         android:src="@android:drawable/ic_input_add"
-        app:layout_constraintStart_toStartOf="@id/button_1"
-        app:layout_constraintTop_toTopOf="@id/button_1"
+        app:layout_constraintStart_toStartOf="@id/activity_main_materialbutton_1"
+        app:layout_constraintTop_toTopOf="@id/activity_main_materialbutton_1"
         app:tint="@color/holo_blue_dark">
     </ImageView>
     <TextView
+        android:id="@+id/activity_main_textview_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:layout_marginStart="5dp"
-        app:layout_constraintBottom_toBottomOf="@id/button_1"
-        app:layout_constraintTop_toTopOf="@id/button_1"
-        app:layout_constraintStart_toEndOf="@id/imageview"
+        app:layout_constraintBottom_toBottomOf="@id/activity_main_materialbutton_1"
+        app:layout_constraintTop_toTopOf="@id/activity_main_materialbutton_1"
+        app:layout_constraintStart_toEndOf="@id/activity_main_imageview2"
         android:text="@string/add_tarefa"
         android:elevation="10dp"
         android:textColor="@color/grey"
         android:textSize="18sp">
     </TextView>
     <androidx.recyclerview.widget.RecyclerView
-        app:layout_constraintTop_toBottomOf="@id/button_1"
+        android:id="@+id/activity_main_recyclerview_1"
+        app:layout_constraintTop_toBottomOf="@id/activity_main_materialbutton_1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="320dp"
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
     </androidx.recyclerview.widget.RecyclerView>
 
