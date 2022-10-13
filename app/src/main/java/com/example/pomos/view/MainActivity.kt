@@ -3,12 +3,14 @@ package com.example.pomos.view
 import android.os.Bundle
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pomos.R
 import com.example.pomos.database.AppDatabase
 import com.example.pomos.databinding.ActivityMainBinding
 import com.example.pomos.viewmodel.MainActivityRecyclerViewAdapter
+import com.google.android.material.button.MaterialButton
 
 private lateinit var binding: ActivityMainBinding
 
@@ -18,9 +20,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        binding.activityMainMaterialbutton1.setOnClickListener(){
-            AddTarefaDialog().show(supportFragmentManager, "MyCustomFragment")
-        }
+        iniciaDialog(binding.activityMainMaterialbutton1,AddTarefaDialog())
         configuraRecyclerView()
     }
     fun configuraRecyclerView(){
@@ -30,5 +30,10 @@ class MainActivity : AppCompatActivity() {
         val recyclerView = findViewById<RecyclerView>(R.id.activity_main_recyclerview_1 )
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
+    }
+    fun iniciaDialog(materialButton: MaterialButton,dialogFragment: DialogFragment){
+        materialButton.setOnClickListener(){
+            dialogFragment.show(supportFragmentManager, "CustomFragment")
+        }
     }
 }
