@@ -8,4 +8,6 @@
     <string name="pomodoros">Pomodoros</string>
     <string name="cancelar">Cancelar</string>
     <string name="criar_tarefa">Criar tarefa</string>
+    <string name="excluir">Excluir</string>
+    <string name="salvar">Salvar</string>
 </resources>
