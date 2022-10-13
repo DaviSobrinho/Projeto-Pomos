@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
         iniciaDialog(binding.activityMainMaterialbutton1,AddTarefaDialog())
         iniciaDialog(binding.activityMainMaterialbutton2, EditTarefaDialog())
-        configuraRecyclerView()
     }
     fun configuraRecyclerView(){
         val adapter = MainActivityRecyclerViewAdapter(context = this)
