@@ -20,4 +20,5 @@ interface FunDao {
 
     @Update
     fun updateTarefa(vararg Tarefa: Tarefa)
+
 }

@@ -13,9 +13,8 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.fragment.app.DialogFragment
 import com.example.pomos.R
-import com.example.pomos.database.AppDatabase
-import com.example.pomos.database.model.Tarefa
 import com.example.pomos.databinding.DialogAddTarefaBinding
+import com.example.pomos.viewmodel.SalvaTarefaDialog
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 
@@ -36,26 +35,35 @@ class AddTarefaDialog : DialogFragment() {
             val width = (resources.displayMetrics.widthPixels * 0.90).toInt()
             val height = (resources.displayMetrics.heightPixels * 0.80).toInt()
             dialog!!.window?.setLayout(width, ViewGroup.LayoutParams.WRAP_CONTENT)
-            configuraBotaoLapis(binding.imagebutton2, binding.textinputedittext1)
-            configuraBotaoLapis(binding.imagebutton3, binding.textinputedittext2)
-            configuraSpinner(binding.spinner1,requireContext(), listOf("Adicionar ao projeto:","Projeto 1", "Projeto 2"))
-            configuraBotaoSpinner(binding.imagebutton4,binding.spinner1)
-            configuraSpinner(binding.spinner2,requireContext(), listOf("Prioridade:","Alta","Média","Baixa"))
-            configuraBotaoSpinner(binding.imagebutton5,binding.spinner2)
-            configuraBotaoContador(binding.imagebutton6, binding.textinputedittext3, true)
-            configuraBotaoContador(binding.imagebutton7, binding.textinputedittext3, false)
-            corrigePomodoros(binding.textinputedittext3)
-            configuraBotaoSair(binding.imagebutton1)
-            configuraBotaoCancelar(binding.materialbutton1)
-            configuraImagemSpiner(binding.imagebutton8,binding.spinner2)
-            salvaTarefa()
+            configuraBotaoLapis(binding.addTarefaDialogImagebutton2, binding.addTarefaDialogTextinputedittext1)
+            configuraBotaoLapis(binding.addTarefaDialogImagebutton3, binding.addTarefaDialogTextinputedittext2)
+            configuraSpinner(binding.addTarefaDialogSpinner1,requireContext(), listOf("Adicionar ao projeto:","Projeto 1", "Projeto 2"))
+            configuraBotaoSpinner(binding.addTarefaDialogImagebutton4,binding.addTarefaDialogSpinner1)
+            configuraSpinner(binding.addTarefaDialogSpinner2,requireContext(), listOf("Prioridade:","Alta","Média","Baixa"))
+            configuraBotaoSpinner(binding.addTarefaDialogImagebutton5,binding.addTarefaDialogSpinner2)
+            configuraBotaoContador(binding.addTarefaDialogImagebutton6, binding.addTarefaDialogTextinputedittext3, true)
+            configuraBotaoContador(binding.addTarefaDialogImagebutton7, binding.addTarefaDialogTextinputedittext3, false)
+            corrigePomodoros(binding.addTarefaDialogTextinputedittext3)
+            configuraBotaoSair(binding.addTarefaDialogImagebutton1)
+            configuraBotaoCancelar(binding.addTarefaDialogMaterialbutton1)
+            configuraImagemSpiner(binding.addTarefaDialogImagebutton8,binding.addTarefaDialogSpinner2)
+            val salva = SalvaTarefaDialog()
+            val dialogv = dialog
+            if (dialogv != null) {
+                salva.salvaTarefa(binding.addTarefaDialogMaterialbutton2,
+                    binding.addTarefaDialogTextinputedittext1,
+                    binding.addTarefaDialogTextinputedittext2,
+                    binding.addTarefaDialogSpinner1,
+                    binding.addTarefaDialogSpinner2,
+                    binding.addTarefaDialogTextinputedittext3,requireContext(),dialogv)
+            }
         }
         override fun onDestroyView() {
             super.onDestroyView()
             _binding = null
         }
         private fun corrigePomodoros (textInputEditText: TextInputEditText){
-            binding.textinputedittext3.addTextChangedListener(object : TextWatcher {
+            binding.addTarefaDialogTextinputedittext3.addTextChangedListener(object : TextWatcher {
                 override fun afterTextChanged(s: Editable?) {
 
                 }
@@ -64,7 +72,6 @@ class AddTarefaDialog : DialogFragment() {
                 }
                 override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                     var num = 0
-                    val a = 0
                     if(textInputEditText.text.toString().startsWith("0") && textInputEditText.text.toString().length >1){
                         var text = textInputEditText.text.toString()
                         text = text.replace("0","")
@@ -90,7 +97,7 @@ class AddTarefaDialog : DialogFragment() {
                 }
             })
         }
-        private fun configuraBotaoContador(button: ImageButton,textInputEditText: TextInputEditText,boolean: Boolean){
+        fun configuraBotaoContador(button: ImageButton,textInputEditText: TextInputEditText,boolean: Boolean){
             if (boolean){
                 button.setOnClickListener(){
                     val textInputEditTextString = textInputEditText.text.toString()
@@ -134,13 +141,11 @@ class AddTarefaDialog : DialogFragment() {
             imageButton.setOnClickListener(){
                 configuraBotaoSpinner(imageButton,spinner)
             }
-            var spinnerString = spinner.selectedItem.toString()
             spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
                 override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-                    spinnerString = spinner.selectedItem.toString()
+                    val spinnerString = spinner.selectedItem.toString()
                     if (spinnerString == "Alta"){
                         imageButton.setImageResource(R.drawable.redflag_foreground)
-                        Toast.makeText(requireContext(), "teste", Toast.LENGTH_SHORT).show()
                     }
                     if (spinnerString == "Média"){
                         imageButton.setImageResource(R.drawable.yellowflag_foreground)
@@ -176,40 +181,5 @@ class AddTarefaDialog : DialogFragment() {
                 }
             }
 
-        }
-        private fun salvaTarefa() {
-            val db = AppDatabase.instancia(requireContext())
-            binding.materialbutton2.setOnClickListener() {
-                val nome = binding.textinputedittext1.text.toString()
-                val descricao = binding.textinputedittext2.text.toString()
-                val projeto = binding.spinner1.selectedItem.toString()
-                val prioridade = binding.spinner2.selectedItem.toString()
-                val pomodoros = binding.textinputedittext3.text.toString().toInt()
-                try{
-                    val tarefa = db.funDao().queryTarefaByName(nome)
-                    db.funDao().insertTarefa(Tarefa(
-                            nome = nome,
-                            pomodoros = pomodoros,
-                            projeto = projeto,
-                            descricao = descricao,
-                            prioridade = prioridade
-                        )
-                    )
-                    Toast.makeText(requireContext(), "Tarefa criada!!", Toast.LENGTH_SHORT).show()
-                    if (dialog?.isShowing == true) {
-                        dialog?.dismiss()
-                    }
-                    val imm = requireContext().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-                    if(!imm.isActive){
-                        imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
-                    }
-                }catch(exception : Exception) {
-                    Toast.makeText(
-                        requireContext(),
-                        "Já existe uma tarefa com esse nome, tente outro!!",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
-            }
         }
 }
