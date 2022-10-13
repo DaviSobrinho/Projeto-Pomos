@@ -61,6 +61,24 @@
         app:layout_constraintTop_toTopOf="parent"
         app:cornerRadius="50dp">
     </com.google.android.material.button.MaterialButton>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/activity_main_materialbutton_2"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="188dp"
+        android:layout_marginEnd="20dp"
+        android:backgroundTint="@color/white"
+        android:elevation="1dp"
+        android:textColor="@color/grey"
+        app:cornerRadius="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </com.google.android.material.button.MaterialButton>
+
     <ImageView
         android:contentDescription="@string/add_tarefa"
         android:clickable="true"

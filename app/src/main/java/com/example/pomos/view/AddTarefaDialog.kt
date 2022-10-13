@@ -14,7 +14,7 @@ import android.widget.*
 import androidx.fragment.app.DialogFragment
 import com.example.pomos.R
 import com.example.pomos.databinding.DialogAddTarefaBinding
-import com.example.pomos.viewmodel.SalvaTarefaDialog
+import com.example.pomos.viewmodel.AdicionarTarefaDialog
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 
@@ -47,10 +47,10 @@ class AddTarefaDialog : DialogFragment() {
             configuraBotaoSair(binding.addTarefaDialogImagebutton1)
             configuraBotaoCancelar(binding.addTarefaDialogMaterialbutton1)
             configuraImagemSpiner(binding.addTarefaDialogImagebutton8,binding.addTarefaDialogSpinner2)
-            val salva = SalvaTarefaDialog()
+            val add = AdicionarTarefaDialog()
             val dialogv = dialog
             if (dialogv != null) {
-                salva.salvaTarefa(binding.addTarefaDialogMaterialbutton2,
+                add.AdicionaTarefa(binding.addTarefaDialogMaterialbutton2,
                     binding.addTarefaDialogTextinputedittext1,
                     binding.addTarefaDialogTextinputedittext2,
                     binding.addTarefaDialogSpinner1,

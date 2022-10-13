@@ -19,8 +19,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-        iniciaDialogMaterialButton(binding.activityMainMaterialbutton1,AddTarefaDialog())
-        configuraRecyclerView()
+        iniciaDialog(binding.activityMainMaterialbutton1,AddTarefaDialog())
+        iniciaDialog(binding.activityMainMaterialbutton2, EditTarefaDialog())
     }
     fun configuraRecyclerView(){
         val adapter = MainActivityRecyclerViewAdapter(context = this)
@@ -30,7 +30,10 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
     }
-    fun iniciaDialogMaterialButton(materialButton: MaterialButton, dialogFragment: DialogFragment){
+    fun iniciaDialog(
+        materialButton: MaterialButton,
+        dialogFragment: DialogFragment
+    ){
         materialButton.setOnClickListener(){
             dialogFragment.show(supportFragmentManager, "CustomFragment")
         }

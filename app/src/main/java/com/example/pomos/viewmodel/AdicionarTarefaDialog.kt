@@ -10,8 +10,8 @@ import com.example.pomos.database.model.Tarefa
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 
-open class SalvaTarefaDialog {
-     fun salvaTarefa(
+open class AdicionarTarefaDialog {
+     fun AdicionaTarefa(
         botaoconfirma : MaterialButton, nome : TextInputEditText, descricao : TextInputEditText,
         projeto : Spinner, prioridade : Spinner, pomodoros : TextInputEditText ,context: Context, dialog : Dialog) {
         val db = AppDatabase.instancia(context)
