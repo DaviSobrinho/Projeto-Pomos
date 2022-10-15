@@ -149,7 +149,8 @@
                             android:id="@+id/add_tarefa_dialog_imagebutton_8"
                             android:layout_width="60dp"
                             android:layout_height="60dp"
-                            android:src="@drawable/redflag_foreground">
+                            android:src="@drawable/redflag_foreground"
+                            app:tint="@color/transparent">
                         </ImageButton>
                     </LinearLayout>
                     <Spinner
