@@ -10,7 +10,7 @@ interface FunDao {
     fun queryAllTarefa() :List<Tarefa>
 
     @Query("SELECT * FROM Tarefa WHERE nome = :nome")
-    fun queryTarefaByName(nome: String?): List<Tarefa>
+    fun queryTarefaByName(nome: String?): Tarefa
 
     @Insert
     fun insertTarefa(vararg Tarefa: Tarefa)

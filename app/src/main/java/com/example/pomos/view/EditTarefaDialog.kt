@@ -3,6 +3,7 @@ package com.example.pomos.view
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -12,8 +13,10 @@ import android.view.*
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.FragmentManager
 import com.example.pomos.R
 import com.example.pomos.databinding.DialogEditTarefaBinding
+import com.example.pomos.viewmodel.CarregaTarefaDialog
 import com.example.pomos.viewmodel.ExcluirTarefaDialog
 import com.example.pomos.viewmodel.SalvarTarefaDialog
 import com.google.android.material.textfield.TextInputEditText
@@ -21,7 +24,7 @@ import com.google.android.material.textfield.TextInputEditText
 private var _binding: DialogEditTarefaBinding? = null
 private val binding get() = _binding!!
 
-class EditTarefaDialog : DialogFragment() {
+class EditTarefaDialog(val nome: String) : DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         _binding = DialogEditTarefaBinding.inflate(LayoutInflater.from(context))
@@ -32,30 +35,51 @@ class EditTarefaDialog : DialogFragment() {
     override fun onStart() {
         dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         super.onStart()
-
         val width = (resources.displayMetrics.widthPixels * 0.90).toInt()
         val height = (resources.displayMetrics.heightPixels * 0.80).toInt()
         dialog!!.window?.setLayout(width, ViewGroup.LayoutParams.WRAP_CONTENT)
-        configuraBotaoLapis(binding.addTarefaDialogImagebutton2, binding.addTarefaDialogTextinputedittext1)
-        configuraBotaoLapis(binding.addTarefaDialogImagebutton3, binding.addTarefaDialogTextinputedittext2)
-        configuraSpinner(binding.addTarefaDialogSpinner1,requireContext(), listOf("Adicionar ao projeto:","Projeto 1", "Projeto 2"))
-        configuraBotaoSpinner(binding.addTarefaDialogImagebutton4,binding.addTarefaDialogSpinner1)
-        configuraSpinner(binding.addTarefaDialogSpinner2,requireContext(), listOf("Prioridade:","Alta","Média","Baixa"))
-        configuraBotaoSpinner(binding.addTarefaDialogImagebutton5,binding.addTarefaDialogSpinner2)
-        configuraBotaoContador(binding.addTarefaDialogImagebutton6, binding.addTarefaDialogTextinputedittext3, true)
-        configuraBotaoContador(binding.addTarefaDialogImagebutton7, binding.addTarefaDialogTextinputedittext3, false)
-        corrigePomodoros(binding.addTarefaDialogTextinputedittext3)
-        configuraBotaoSair(binding.addTarefaDialogImagebutton1)
-        configuraImagemSpiner(binding.addTarefaDialogImagebutton8,binding.addTarefaDialogSpinner2)
+        configuraBotaoLapis(binding.editTarefaDialogImagebutton2, binding.editTarefaDialogTextinputedittext1)
+        configuraBotaoLapis(binding.editTarefaDialogImagebutton3, binding.editTarefaDialogTextinputedittext2)
+        configuraSpinner(binding.editTarefaDialogSpinner1,requireContext(), listOf("Adicionar ao projeto:","Projeto 1", "Projeto 2"))
+        configuraBotaoSpinner(binding.editTarefaDialogImagebutton4,binding.editTarefaDialogSpinner1)
+        configuraSpinner(binding.editTarefaDialogSpinner2,requireContext(), listOf("Prioridade:","Alta","Média","Baixa"))
+        configuraBotaoSpinner(binding.editTarefaDialogImagebutton5,binding.editTarefaDialogSpinner2)
+        configuraBotaoContador(binding.editTarefaDialogImagebutton6, binding.editTarefaDialogTextinputedittext3, true)
+        configuraBotaoContador(binding.editTarefaDialogImagebutton7, binding.editTarefaDialogTextinputedittext3, false)
+        corrigePomodoros(binding.editTarefaDialogTextinputedittext3)
+        configuraBotaoSair(binding.editTarefaDialogImagebutton1)
+        configuraImagemSpiner(binding.editTarefaDialogImagebutton8,binding.editTarefaDialogSpinner2)
         val salva = SalvarTarefaDialog()
+        val exclui = ExcluirTarefaDialog()
         val dialogv = dialog
+        preencheDados()
         if (dialogv != null) {
-            salva.salvarTarefa()
+            salva.salvaTarefa(binding.editTarefaDialogMaterialbutton2,
+                binding.editTarefaDialogTextinputedittext1,
+                binding.editTarefaDialogTextinputedittext2,
+                binding.editTarefaDialogTextview1,
+                binding.editTarefaDialogSpinner1,
+                binding.editTarefaDialogSpinner2,
+                binding.editTarefaDialogTextinputedittext3,requireContext(),dialogv)
+            exclui.excluiTarefa(binding.editTarefaDialogMaterialbutton1,binding.editTarefaDialogTextinputedittext1,requireContext(),dialogv)
         }
-        val del = ExcluirTarefaDialog()
-        val dialogv = dialog
-        if(dialogv != null){
-            del.excluirTarefa()
+    }
+    fun preencheDados(){
+        binding.editTarefaDialogTextview1.text = nome
+        val carregaTarefa = CarregaTarefaDialog(requireContext(), nome)
+        binding.editTarefaDialogTextinputedittext1.setText(carregaTarefa.nome)
+        binding.editTarefaDialogTextinputedittext2.setText(carregaTarefa.descricao)
+        if (carregaTarefa.prioridade == "Alta"){
+            binding.editTarefaDialogSpinner2.setSelection(1)
+            binding.editTarefaDialogImageview1.setImageResource(R.drawable.redflag_foreground)
+        }
+        if (carregaTarefa.prioridade == "Média"){
+            binding.editTarefaDialogSpinner2.setSelection(2)
+            binding.editTarefaDialogImageview1.setImageResource(R.drawable.yellowflag_foreground)
+        }
+        if (carregaTarefa.prioridade == "Baixa"){
+            binding.editTarefaDialogSpinner2.setSelection(3)
+            binding.editTarefaDialogImageview1.setImageResource(R.drawable.greenflag_foreground)
         }
     }
     override fun onDestroyView() {
@@ -63,7 +87,7 @@ class EditTarefaDialog : DialogFragment() {
         _binding = null
     }
     private fun corrigePomodoros (textInputEditText: TextInputEditText){
-        binding.addTarefaDialogTextinputedittext3.addTextChangedListener(object : TextWatcher {
+        binding.editTarefaDialogTextinputedittext3.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
 
             }
@@ -146,12 +170,15 @@ class EditTarefaDialog : DialogFragment() {
                 val spinnerString = spinner.selectedItem.toString()
                 if (spinnerString == "Alta"){
                     imageButton.setImageResource(R.drawable.redflag_foreground)
+                    binding.editTarefaDialogImageview1.setImageResource(R.drawable.redflag_foreground)
                 }
                 if (spinnerString == "Média"){
                     imageButton.setImageResource(R.drawable.yellowflag_foreground)
+                    binding.editTarefaDialogImageview1.setImageResource(R.drawable.yellowflag_foreground)
                 }
                 if (spinnerString == "Baixa"){
                     imageButton.setImageResource(R.drawable.greenflag_foreground)
+                    binding.editTarefaDialogImageview1.setImageResource(R.drawable.greenflag_foreground)
                 }
             }
             override fun onNothingSelected(p0: AdapterView<*>?) {
@@ -168,6 +195,5 @@ class EditTarefaDialog : DialogFragment() {
                 imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
             }
         }
-
     }
 }

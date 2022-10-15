@@ -22,7 +22,6 @@ open class AdicionarTarefaDialog {
             val prioridadet = prioridade.selectedItem.toString()
             val pomodorost = pomodoros.text.toString().toInt()
             try {
-                val tarefa = db.funDao().queryTarefaByName(nomet)
                 db.funDao().insertTarefa(
                     Tarefa(
                         nome = nomet,
@@ -36,8 +35,7 @@ open class AdicionarTarefaDialog {
                 if (dialog.isShowing == true) {
                     dialog.dismiss()
                 }
-                val imm =
-                    context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                val imm = context.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
                 if (!imm.isActive) {
                     imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
                 }

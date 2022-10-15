@@ -12,7 +12,8 @@ import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pomos.R
 import com.example.pomos.database.model.Tarefa
-import com.example.pomos.view.AddTarefaDialog
+import com.example.pomos.view.EditTarefaDialog
+import com.google.android.material.button.MaterialButton
 
 
 class MainActivityRecyclerViewAdapter(private val context: Context, tarefa: List<Tarefa> = emptyList(),
@@ -21,10 +22,10 @@ class MainActivityRecyclerViewAdapter(private val context: Context, tarefa: List
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(tarefa: Tarefa) {
+            val button = itemView.findViewById<MaterialButton>(R.id.recyclerview_activity_main_materialbutton_1)
             val nome = itemView.findViewById<TextView>(R.id.recyclerview_activity_main_textview_1)
             nome.text = (tarefa.nome)
-            val prioridade =
-                itemView.findViewById<ImageView>(R.id.recyclerview_activity_main_imageview_1)
+            val prioridade = itemView.findViewById<ImageView>(R.id.recyclerview_activity_main_imageview_1)
             val prioridadeValidador = (tarefa.prioridade)
             if (prioridadeValidador == "Alta") {
                 prioridade.setImageResource(R.drawable.redflag_foreground)
@@ -37,12 +38,15 @@ class MainActivityRecyclerViewAdapter(private val context: Context, tarefa: List
             }
             val more = itemView.findViewById<ImageButton>(R.id.recyclerview_activity_main_imagebutton_1)
             more.setImageResource(R.drawable.more_foreground)
-            more.setOnClickListener() {
-                showDialogFragment(itemView)
+            more.setOnClickListener{
+                showDialogFragment(itemView, nome.text.toString())
+            }
+            button.setOnClickListener{
+                showDialogFragment(itemView, nome.text.toString())
             }
         }
-        fun showDialogFragment(view: View) {
-            val dialogFragment: DialogFragment = AddTarefaDialog()
+        private fun showDialogFragment(view: View, nome : String) {
+            val dialogFragment: DialogFragment = EditTarefaDialog(nome)
             val activity = view.context as AppCompatActivity
             dialogFragment.show(activity.supportFragmentManager, null)
         }

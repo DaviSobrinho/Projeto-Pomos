@@ -24,7 +24,8 @@
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout-v31/dialog_add_tarefa.xml" value="0.12552083333333333" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout/add_tarefa_dialog_spinner_layout.xml" value="0.22" />
-        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout/dialog_add_tarefa.xml" value="0.1" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout/dialog_add_tarefa.xml" value="0.22" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout/dialog_edit_tarefa.xml" value="0.1956521739130435" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout/recyclerview_activity_main.xml" value="0.25" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout/scrollview_activity_main.xml" value="0.22" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout/spinner_dropdown.xml" value="0.1956521739130435" />
@@ -36,9 +37,6 @@
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/mipmap-anydpi-v26/greenflag.xml" value="0.126" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/mipmap-anydpi-v26/menu.xml" value="0.136" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/mipmap-anydpi-v26/settings2_round.xml" value="0.136" />
-        <entry key="..\:/android/Projeto-Pomos/app/src/main/res/layout/activity_main.xml" value="0.2078804347826087" />
-        <entry key="..\:/android/Projeto-Pomos/app/src/main/res/layout/dialog_add_tarefa.xml" value="0.25" />
-        <entry key="..\:/android/Projeto-Pomos/app/src/main/res/layout/dialog_edit_tarefa.xml" value="0.2078804347826087" />
       </map>
     </option>
   </component>

@@ -20,7 +20,11 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
         iniciaDialog(binding.activityMainMaterialbutton1,AddTarefaDialog())
-        iniciaDialog(binding.activityMainMaterialbutton2, EditTarefaDialog())
+        configuraRecyclerView()
+    }
+    override fun onWindowFocusChanged(hasFocus: Boolean) {
+        super.onWindowFocusChanged(hasFocus)
+        configuraRecyclerView()
     }
     fun configuraRecyclerView(){
         val adapter = MainActivityRecyclerViewAdapter(context = this)

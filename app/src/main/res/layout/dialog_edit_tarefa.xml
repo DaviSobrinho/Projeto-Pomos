@@ -19,31 +19,38 @@
             android:layout_height="match_parent">
 
             <ImageView
-                android:id="@+id/icon"
-                android:layout_width="77dp"
-                android:layout_height="76dp"
-                android:src="@drawable/redflag_foreground"
-                tools:layout_editor_absoluteX="3dp"
-                tools:layout_editor_absoluteY="5dp" />
-
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="15dp"
+                android:layout_marginStart="15dp"
+                android:scaleX="1.5"
+                android:scaleY="1.5"
+                android:id="@+id/edit_tarefa_dialog_imageview_1"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/redflag_foreground"/>
             <TextView
-                android:id="@+id/add_tarefa_dialog_textview_1"
+                android:gravity="center_vertical"
+                android:id="@+id/edit_tarefa_dialog_textview_1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="64dp"
-                android:layout_marginTop="24dp"
-                android:text="@string/add_tarefa"
+                android:layout_height="40dp"
+                android:layout_marginStart="55dp"
+                android:layout_marginTop="15dp"
+                android:text="Tarefa"
                 android:textColor="@color/dark_grey"
                 android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"></TextView>
+                app:layout_constraintTop_toTopOf="parent">
+            </TextView>
 
             <ImageButton
-                android:id="@+id/add_tarefa_dialog_imagebutton_1"
+                android:scaleY="1.5"
+                android:scaleX="1.5"
+                android:id="@+id/edit_tarefa_dialog_imagebutton_1"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginEnd="5dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="15dp"
                 android:src="@android:drawable/ic_menu_close_clear_cancel"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -51,7 +58,7 @@
                 android:background="@color/white"/>
             <com.google.android.material.textfield.TextInputLayout
                 app:boxBackgroundColor="@color/light_grey"
-                android:id="@+id/add_tarefa_dialog_textinputlayout_1"
+                android:id="@+id/edit_tarefa_dialog_textinputlayout_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
@@ -64,7 +71,7 @@
                 app:boxCornerRadiusBottomStart="0dp"
                 app:boxCornerRadiusTopStart="0dp">
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/add_tarefa_dialog_textinputedittext_1"
+                    android:id="@+id/edit_tarefa_dialog_textinputedittext_1"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:hint="@string/nome_tarefa">
@@ -74,21 +81,21 @@
             <ImageButton
                 android:background="@color/grey"
                 android:layout_marginEnd="15dp"
-                android:id="@+id/add_tarefa_dialog_imagebutton_2"
+                android:id="@+id/edit_tarefa_dialog_imagebutton_2"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 app:srcCompat="@android:drawable/ic_menu_edit"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/add_tarefa_dialog_textinputlayout_1"
+                app:layout_constraintStart_toEndOf="@+id/edit_tarefa_dialog_textinputlayout_1"
                 android:layout_marginTop="80dp"/>
 
             <com.google.android.material.textfield.TextInputLayout
                 app:boxBackgroundColor="@color/light_grey"
-                android:id="@+id/add_tarefa_dialog_textinputlayout_2"
+                android:id="@+id/edit_tarefa_dialog_textinputlayout_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/add_tarefa_dialog_textinputlayout_1"
+                app:layout_constraintTop_toBottomOf="@id/edit_tarefa_dialog_textinputlayout_1"
                 android:layout_marginTop="30dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="75dp"
@@ -97,7 +104,7 @@
                 app:boxCornerRadiusBottomStart="0dp"
                 app:boxCornerRadiusTopStart="0dp">
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/add_tarefa_dialog_textinputedittext_2"
+                    android:id="@+id/edit_tarefa_dialog_textinputedittext_2"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:hint="@string/descrição">
@@ -107,26 +114,26 @@
             <ImageButton
                 android:background="@color/grey"
                 android:layout_marginEnd="15dp"
-                android:id="@+id/add_tarefa_dialog_imagebutton_3"
+                android:id="@+id/edit_tarefa_dialog_imagebutton_3"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 app:srcCompat="@android:drawable/ic_menu_edit"
-                app:layout_constraintTop_toTopOf="@id/add_tarefa_dialog_textinputlayout_2"
-                app:layout_constraintStart_toEndOf="@+id/add_tarefa_dialog_textinputlayout_2"/>
+                app:layout_constraintTop_toTopOf="@id/edit_tarefa_dialog_textinputlayout_2"
+                app:layout_constraintStart_toEndOf="@+id/edit_tarefa_dialog_textinputlayout_2"/>
             <Spinner
                 android:background="@color/light_grey"
                 android:spinnerMode="dropdown"
-                android:id="@+id/add_tarefa_dialog_spinner_1"
+                android:id="@+id/edit_tarefa_dialog_spinner_1"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                app:layout_constraintTop_toBottomOf="@id/add_tarefa_dialog_textinputlayout_2"
+                app:layout_constraintTop_toBottomOf="@id/edit_tarefa_dialog_textinputlayout_2"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="75dp"
                 android:layout_marginTop="30dp"/>
 
             <ImageButton
-                android:id="@+id/add_tarefa_dialog_imagebutton_4"
+                android:id="@+id/edit_tarefa_dialog_imagebutton_4"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:background="@color/grey"
@@ -134,22 +141,22 @@
                 app:tint="@color/dark_grey"
                 android:backgroundTintMode="src_atop"
                 android:src="@mipmap/down_arrow_foreground"
-                app:layout_constraintStart_toEndOf="@id/add_tarefa_dialog_spinner_1"
-                app:layout_constraintTop_toTopOf="@id/add_tarefa_dialog_spinner_1">
+                app:layout_constraintStart_toEndOf="@id/edit_tarefa_dialog_spinner_1"
+                app:layout_constraintTop_toTopOf="@id/edit_tarefa_dialog_spinner_1">
 
             </ImageButton>
             <LinearLayout
-                android:id="@+id/add_tarefa_dialog_linearlayout_1"
+                android:id="@+id/edit_tarefa_dialog_linearlayout_1"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                app:layout_constraintTop_toBottomOf="@id/add_tarefa_dialog_spinner_1"
+                app:layout_constraintTop_toBottomOf="@id/edit_tarefa_dialog_spinner_1"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="30dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="15dp">
                 <LinearLayout
-                    android:id="@+id/add_tarefa_dialog_linearlayout_2"
+                    android:id="@+id/edit_tarefa_dialog_linearlayout_2"
                     android:layout_marginEnd="0dp"
                     android:layout_weight="50"
                     android:orientation="horizontal"
@@ -164,8 +171,8 @@
                             android:background="#00000000"
                             android:backgroundTint="#00000000"
                             android:scaleX="0.6"
-                            android:scaleY="0.8"
-                            android:id="@+id/add_tarefa_dialog_imagebutton_8"
+                            android:scaleY="0.6"
+                            android:id="@+id/edit_tarefa_dialog_imagebutton_8"
                             android:layout_width="30dp"
                             android:layout_height="60dp"
                             android:src="@drawable/redflag_foreground">
@@ -173,14 +180,14 @@
                     </LinearLayout>
                     <Spinner
                         android:background="@color/light_grey"
-                        android:id="@+id/add_tarefa_dialog_spinner_2"
+                        android:id="@+id/edit_tarefa_dialog_spinner_2"
                         android:layout_weight="50"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
                     </Spinner>
                     <ImageButton
-                        android:id="@+id/add_tarefa_dialog_imagebutton_5"
+                        android:id="@+id/edit_tarefa_dialog_imagebutton_5"
                         android:layout_weight="0"
                         android:layout_width="40dp"
                         android:layout_height="60dp"
@@ -192,7 +199,7 @@
                     </ImageButton>
                 </LinearLayout>
                 <LinearLayout
-                    android:id="@+id/add_tarefa_dialog_linearlayout_3"
+                    android:id="@+id/edit_tarefa_dialog_linearlayout_3"
                     android:layout_marginStart="10dp"
                     android:layout_weight="50"
                     android:orientation="horizontal"
@@ -209,7 +216,7 @@
                             android:text="0"
                             android:inputType="number"
                             android:digits="1234567890"
-                            android:id="@+id/add_tarefa_dialog_textinputedittext_3"
+                            android:id="@+id/edit_tarefa_dialog_textinputedittext_3"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent">
                         </com.google.android.material.textfield.TextInputEditText>
@@ -221,7 +228,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content">
                         <ImageButton
-                            android:id="@+id/add_tarefa_dialog_imagebutton_6"
+                            android:id="@+id/edit_tarefa_dialog_imagebutton_6"
                             android:rotation="180"
                             android:layout_weight="0"
                             android:layout_width="40dp"
@@ -233,7 +240,7 @@
                             android:src="@mipmap/down_arrow_foreground">
                         </ImageButton>
                         <ImageButton
-                            android:id="@+id/add_tarefa_dialog_imagebutton_7"
+                            android:id="@+id/edit_tarefa_dialog_imagebutton_7"
                             android:layout_weight="0"
                             android:layout_width="40dp"
                             android:layout_height="30dp"
@@ -247,14 +254,14 @@
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
-                android:id="@+id/add_tarefa_dialog_linearlayout_4"
+                android:id="@+id/edit_tarefa_dialog_linearlayout_4"
                 android:layout_marginTop="30dp"
-                app:layout_constraintTop_toBottomOf="@id/add_tarefa_dialog_linearlayout_1"
+                app:layout_constraintTop_toBottomOf="@id/edit_tarefa_dialog_linearlayout_1"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="70dp">
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/add_tarefa_dialog_materialbutton_1"
+                    android:id="@+id/edit_tarefa_dialog_materialbutton_1"
                     android:layout_marginStart="15dp"
                     android:textColor="@color/dark_grey"
                     android:text="@string/excluir"
@@ -266,7 +273,7 @@
                     android:layout_marginEnd="5dp">
                 </com.google.android.material.button.MaterialButton>
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/add_tarefa_dialog_materialbutton_2"
+                    android:id="@+id/edit_tarefa_dialog_materialbutton_2"
                     android:layout_marginEnd="15dp"
                     android:textColor="@color/light_grey"
                     android:text="@string/salvar"

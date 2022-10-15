@@ -21,9 +21,11 @@
 
     </ImageButton>
     <com.google.android.material.button.MaterialButton
+        android:stateListAnimator="@null"
+        app:rippleColor="@color/light_grey"
         android:backgroundTint="@color/white"
         android:textColor="@color/grey"
-        android:id="@+id/scrollview_activity_main_materialbutton_1"
+        android:id="@+id/recyclerview_activity_main_materialbutton_1"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="10dp"
@@ -46,8 +48,8 @@
         android:backgroundTint="@color/white"
         android:elevation="10dp"
         android:src="@drawable/redflag_foreground"
-        app:layout_constraintStart_toStartOf="@id/scrollview_activity_main_materialbutton_1"
-        app:layout_constraintTop_toTopOf="@id/scrollview_activity_main_materialbutton_1">
+        app:layout_constraintStart_toStartOf="@id/recyclerview_activity_main_materialbutton_1"
+        app:layout_constraintTop_toTopOf="@id/recyclerview_activity_main_materialbutton_1">
     </ImageView>
     <TextView
         android:id="@+id/recyclerview_activity_main_textview_1"
@@ -58,8 +60,8 @@
         android:layout_marginStart="50dp"
         android:gravity="center_vertical"
         android:layout_marginEnd="50dp"
-        app:layout_constraintBottom_toBottomOf="@id/scrollview_activity_main_materialbutton_1"
-        app:layout_constraintTop_toTopOf="@id/scrollview_activity_main_materialbutton_1"
+        app:layout_constraintBottom_toBottomOf="@id/recyclerview_activity_main_materialbutton_1"
+        app:layout_constraintTop_toTopOf="@id/recyclerview_activity_main_materialbutton_1"
         app:layout_constraintStart_toEndOf="@id/recyclerview_activity_main_imageview_1"
         android:text="@string/nome_tarefa"
         android:elevation="10dp"
