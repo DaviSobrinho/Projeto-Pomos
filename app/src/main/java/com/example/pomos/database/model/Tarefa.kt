@@ -7,7 +7,6 @@ import androidx.room.PrimaryKey
 class Tarefa(
     @PrimaryKey val nome : String,
     val descricao : String,
-    val projeto : String,
     val prioridade : String,
     val pomodoros : Int
 )

@@ -37,9 +37,7 @@ class AddTarefaDialog : DialogFragment() {
             dialog!!.window?.setLayout(width, ViewGroup.LayoutParams.WRAP_CONTENT)
             configuraBotaoLapis(binding.addTarefaDialogImagebutton2, binding.addTarefaDialogTextinputedittext1)
             configuraBotaoLapis(binding.addTarefaDialogImagebutton3, binding.addTarefaDialogTextinputedittext2)
-            configuraSpinner(binding.addTarefaDialogSpinner1,requireContext(), listOf("Adicionar ao projeto:","Projeto 1", "Projeto 2"))
-            configuraBotaoSpinner(binding.addTarefaDialogImagebutton4,binding.addTarefaDialogSpinner1)
-            configuraSpinner(binding.addTarefaDialogSpinner2,requireContext(), listOf("Prioridade:","Alta","Média","Baixa"))
+            configuraSpinner(binding.addTarefaDialogSpinner2,requireContext(), listOf("Alta","Média","Baixa"))
             configuraBotaoSpinner(binding.addTarefaDialogImagebutton5,binding.addTarefaDialogSpinner2)
             configuraBotaoContador(binding.addTarefaDialogImagebutton6, binding.addTarefaDialogTextinputedittext3, true)
             configuraBotaoContador(binding.addTarefaDialogImagebutton7, binding.addTarefaDialogTextinputedittext3, false)
@@ -53,7 +51,6 @@ class AddTarefaDialog : DialogFragment() {
                 add.AdicionaTarefa(binding.addTarefaDialogMaterialbutton2,
                     binding.addTarefaDialogTextinputedittext1,
                     binding.addTarefaDialogTextinputedittext2,
-                    binding.addTarefaDialogSpinner1,
                     binding.addTarefaDialogSpinner2,
                     binding.addTarefaDialogTextinputedittext3,requireContext(),dialogv)
             }
