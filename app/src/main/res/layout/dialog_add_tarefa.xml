@@ -141,16 +141,14 @@
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/light_grey"
                         android:background="@color/light_grey">
-                        <ImageButton
+                        <ImageView
                             android:background="#00000000"
                             android:backgroundTint="#00000000"
-                            android:scaleX="0.8"
-                            android:scaleY="0.8"
-                            android:id="@+id/add_tarefa_dialog_imagebutton_8"
+                            android:id="@+id/add_tarefa_dialog_imageview_1"
                             android:layout_width="60dp"
                             android:layout_height="60dp"
-                            android:src="@drawable/redflag_foreground">
-                        </ImageButton>
+                            android:src="@mipmap/redtag_foreground">
+                        </ImageView>
                     </LinearLayout>
                     <Spinner
                         android:background="@color/light_grey"

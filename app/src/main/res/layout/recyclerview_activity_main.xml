@@ -6,6 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <ImageButton
+        app:tint="@color/dark_grey"
         android:id="@+id/recyclerview_activity_main_imagebutton_1"
         android:scaleY="0.7"
         android:scaleX="0.7"
@@ -13,7 +14,7 @@
         android:layout_width="40dp"
         android:layout_height="60dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="15dp"
         android:elevation="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -23,14 +24,14 @@
     <com.google.android.material.button.MaterialButton
         android:stateListAnimator="@null"
         app:rippleColor="@color/light_grey"
-        android:backgroundTint="@color/white"
-        android:textColor="@color/grey"
+        android:backgroundTint="@color/grey"
+        android:textColor="@color/dark_grey"
         android:id="@+id/recyclerview_activity_main_materialbutton_1"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginStart="5dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="15dp"
         android:elevation="1dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,7 +48,7 @@
         android:layout_marginTop="10dp"
         android:backgroundTint="@color/white"
         android:elevation="10dp"
-        android:src="@drawable/redflag_foreground"
+        android:src="@mipmap/redtag_foreground"
         app:layout_constraintStart_toStartOf="@id/recyclerview_activity_main_materialbutton_1"
         app:layout_constraintTop_toTopOf="@id/recyclerview_activity_main_materialbutton_1">
     </ImageView>
@@ -57,15 +58,15 @@
         android:layout_height="40dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
-        android:layout_marginStart="50dp"
+        android:layout_marginStart="60dp"
         android:gravity="center_vertical"
-        android:layout_marginEnd="50dp"
+        android:layout_marginEnd="55dp"
         app:layout_constraintBottom_toBottomOf="@id/recyclerview_activity_main_materialbutton_1"
         app:layout_constraintTop_toTopOf="@id/recyclerview_activity_main_materialbutton_1"
         app:layout_constraintStart_toEndOf="@id/recyclerview_activity_main_imageview_1"
         android:text="@string/nome_tarefa"
         android:elevation="10dp"
-        android:textColor="@color/grey"
+        android:textColor="@color/dark_grey"
         android:textSize="18sp">
     </TextView>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,4 +14,6 @@
     <color name="holo_red_dark">@android:color/holo_red_dark</color>
     <color name="holo_green_light">#AAFF00</color>
     <color name="transparent">#00000000</color>
+    <color name="green">#006E02</color>
+    <color name="red">#A81010</color>
 </resources>

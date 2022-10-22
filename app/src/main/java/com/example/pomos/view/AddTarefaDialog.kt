@@ -23,6 +23,7 @@ private val binding get() = _binding!!
 
 class AddTarefaDialog : DialogFragment() {
 
+
         override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
             _binding = DialogAddTarefaBinding.inflate(LayoutInflater.from(context))
             return AlertDialog.Builder(requireActivity())
@@ -44,7 +45,7 @@ class AddTarefaDialog : DialogFragment() {
             corrigePomodoros(binding.addTarefaDialogTextinputedittext3)
             configuraBotaoSair(binding.addTarefaDialogImagebutton1)
             configuraBotaoCancelar(binding.addTarefaDialogMaterialbutton1)
-            configuraImagemSpiner(binding.addTarefaDialogImagebutton8,binding.addTarefaDialogSpinner2)
+            configuraImagemSpiner(binding.addTarefaDialogImageview1,binding.addTarefaDialogSpinner2)
             val add = AdicionarTarefaDialog()
             val dialogv = dialog
             if (dialogv != null) {
@@ -55,6 +56,8 @@ class AddTarefaDialog : DialogFragment() {
                     binding.addTarefaDialogTextinputedittext3,requireContext(),dialogv)
             }
         }
+
+
         override fun onDestroyView() {
             super.onDestroyView()
             _binding = null
@@ -134,21 +137,21 @@ class AddTarefaDialog : DialogFragment() {
             val arrayAdapter = ArrayAdapter(context, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, list)
             spinner.adapter = arrayAdapter
         }
-        private fun configuraImagemSpiner(imageButton: ImageButton, spinner: Spinner){
-            imageButton.setOnClickListener(){
-                configuraBotaoSpinner(imageButton,spinner)
+        private fun configuraImagemSpiner(imageView: ImageView, spinner: Spinner){
+            imageView.setOnClickListener(){
+                spinner.performClick()
             }
             spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
                 override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
                     val spinnerString = spinner.selectedItem.toString()
                     if (spinnerString == "Alta"){
-                        imageButton.setImageResource(R.drawable.redflag_foreground)
+                        imageView.setImageResource(R.mipmap.redtag_foreground)
                     }
                     if (spinnerString == "Média"){
-                        imageButton.setImageResource(R.drawable.yellowflag_foreground)
+                        imageView.setImageResource(R.mipmap.yellowtag_foreground)
                     }
                     if (spinnerString == "Baixa"){
-                        imageButton.setImageResource(R.drawable.greenflag_foreground)
+                        imageView.setImageResource(R.mipmap.greentag_foreground)
                     }
                 }
                 override fun onNothingSelected(p0: AdapterView<*>?) {

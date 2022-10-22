@@ -28,13 +28,13 @@ class MainActivityRecyclerViewAdapter(private val context: Context, tarefa: List
             val prioridade = itemView.findViewById<ImageView>(R.id.recyclerview_activity_main_imageview_1)
             val prioridadeValidador = (tarefa.prioridade)
             if (prioridadeValidador == "Alta") {
-                prioridade.setImageResource(R.drawable.redflag_foreground)
+                prioridade.setImageResource(R.mipmap.redtag_foreground)
             }
             if (prioridadeValidador == "Média") {
-                prioridade.setImageResource(R.drawable.yellowflag_foreground)
+                prioridade.setImageResource(R.mipmap.yellowtag_foreground)
             }
             if (prioridadeValidador == "Baixa") {
-                prioridade.setImageResource(R.drawable.greenflag_foreground)
+                prioridade.setImageResource(R.mipmap.greentag_foreground)
             }
             val more = itemView.findViewById<ImageButton>(R.id.recyclerview_activity_main_imagebutton_1)
             more.setImageResource(R.drawable.more_foreground)

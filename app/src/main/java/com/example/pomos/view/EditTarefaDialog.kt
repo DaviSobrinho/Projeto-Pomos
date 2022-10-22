@@ -3,7 +3,6 @@ package com.example.pomos.view
 import android.app.AlertDialog
 import android.app.Dialog
 import android.content.Context
-import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -13,7 +12,6 @@ import android.view.*
 import android.view.inputmethod.InputMethodManager
 import android.widget.*
 import androidx.fragment.app.DialogFragment
-import androidx.fragment.app.FragmentManager
 import com.example.pomos.R
 import com.example.pomos.databinding.DialogEditTarefaBinding
 import com.example.pomos.viewmodel.CarregaTarefaDialog
@@ -46,7 +44,7 @@ class EditTarefaDialog(val nome: String) : DialogFragment() {
         configuraBotaoContador(binding.editTarefaDialogImagebutton7, binding.editTarefaDialogTextinputedittext3, false)
         corrigePomodoros(binding.editTarefaDialogTextinputedittext3)
         configuraBotaoSair(binding.editTarefaDialogImagebutton1)
-        configuraImagemSpiner(binding.editTarefaDialogImagebutton8,binding.editTarefaDialogSpinner2)
+        configuraImagemSpiner(binding.editTarefaDialogImageview2,binding.editTarefaDialogSpinner2)
         val salva = SalvarTarefaDialog()
         val exclui = ExcluirTarefaDialog()
         val dialogv = dialog
@@ -66,17 +64,18 @@ class EditTarefaDialog(val nome: String) : DialogFragment() {
         val carregaTarefa = CarregaTarefaDialog(requireContext(), nome)
         binding.editTarefaDialogTextinputedittext1.setText(carregaTarefa.nome)
         binding.editTarefaDialogTextinputedittext2.setText(carregaTarefa.descricao)
+        binding.editTarefaDialogTextinputedittext3.setText(carregaTarefa.pomodoros.toString())
         if (carregaTarefa.prioridade == "Alta"){
             binding.editTarefaDialogSpinner2.setSelection(1)
-            binding.editTarefaDialogImageview1.setImageResource(R.drawable.redflag_foreground)
+            binding.editTarefaDialogImageview1.setImageResource(R.mipmap.redtag_foreground)
         }
         if (carregaTarefa.prioridade == "Média"){
             binding.editTarefaDialogSpinner2.setSelection(2)
-            binding.editTarefaDialogImageview1.setImageResource(R.drawable.yellowflag_foreground)
+            binding.editTarefaDialogImageview1.setImageResource(R.mipmap.yellowtag_foreground)
         }
         if (carregaTarefa.prioridade == "Baixa"){
             binding.editTarefaDialogSpinner2.setSelection(3)
-            binding.editTarefaDialogImageview1.setImageResource(R.drawable.greenflag_foreground)
+            binding.editTarefaDialogImageview1.setImageResource(R.mipmap.greentag_foreground)
         }
     }
     override fun onDestroyView() {
@@ -158,24 +157,24 @@ class EditTarefaDialog(val nome: String) : DialogFragment() {
         val arrayAdapter = ArrayAdapter(context, androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, list)
         spinner.adapter = arrayAdapter
     }
-    private fun configuraImagemSpiner(imageButton: ImageButton, spinner: Spinner){
-        imageButton.setOnClickListener(){
-            configuraBotaoSpinner(imageButton,spinner)
+    private fun configuraImagemSpiner(imageView: ImageView, spinner: Spinner){
+        imageView.setOnClickListener(){
+            spinner.performClick()
         }
         spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
                 val spinnerString = spinner.selectedItem.toString()
                 if (spinnerString == "Alta"){
-                    imageButton.setImageResource(R.drawable.redflag_foreground)
-                    binding.editTarefaDialogImageview1.setImageResource(R.drawable.redflag_foreground)
+                    imageView.setImageResource(R.mipmap.redtag_foreground)
+                    binding.editTarefaDialogImageview1.setImageResource(R.mipmap.redtag_foreground)
                 }
                 if (spinnerString == "Média"){
-                    imageButton.setImageResource(R.drawable.yellowflag_foreground)
-                    binding.editTarefaDialogImageview1.setImageResource(R.drawable.yellowflag_foreground)
+                    imageView.setImageResource(R.mipmap.yellowtag_foreground)
+                    binding.editTarefaDialogImageview1.setImageResource(R.mipmap.yellowtag_foreground)
                 }
                 if (spinnerString == "Baixa"){
-                    imageButton.setImageResource(R.drawable.greenflag_foreground)
-                    binding.editTarefaDialogImageview1.setImageResource(R.drawable.greenflag_foreground)
+                    imageView.setImageResource(R.mipmap.greentag_foreground)
+                    binding.editTarefaDialogImageview1.setImageResource(R.mipmap.greentag_foreground)
                 }
             }
             override fun onNothingSelected(p0: AdapterView<*>?) {

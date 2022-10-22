@@ -18,8 +18,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <ImageView
-                android:scaleY="0.8"
-                android:scaleX="0.8"
+                android:scaleY="1.2"
+                android:scaleX="1.2"
                 android:id="@+id/edit_tarefa_dialog_imageview_1"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
@@ -27,7 +27,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="15dp"
                 android:layout_marginStart="15dp"
-                android:src="@mipmap/flag_foreground">
+                android:src="@mipmap/redtag_foreground">
             </ImageView>
             <TextView
                 android:gravity="center_vertical"
@@ -151,16 +151,14 @@
                         android:layout_height="wrap_content"
                         android:backgroundTint="@color/light_grey"
                         android:background="@color/light_grey">
-                        <ImageButton
+                        <ImageView
                             android:background="#00000000"
                             android:backgroundTint="#00000000"
-                            android:scaleX="0.8"
-                            android:scaleY="0.8"
-                            android:id="@+id/edit_tarefa_dialog_imagebutton_8"
+                            android:id="@+id/edit_tarefa_dialog_imageview_2"
                             android:layout_width="60dp"
                             android:layout_height="60dp"
-                            android:src="@mipmap/flag_foreground">
-                        </ImageButton>
+                            android:src="@mipmap/redtag_foreground">
+                        </ImageView>
                     </LinearLayout>
                     <Spinner
                         android:background="@color/light_grey"
@@ -253,7 +251,7 @@
                     android:id="@+id/edit_tarefa_dialog_materialbutton_1"
                     android:layout_marginStart="15dp"
                     android:textColor="@color/dark_grey"
-                    android:text="@string/cancelar"
+                    android:text="@string/excluir"
                     android:backgroundTint="@color/light_grey"
                     app:cornerRadius="50dp"
                     android:layout_weight="50"
@@ -265,7 +263,7 @@
                     android:id="@+id/edit_tarefa_dialog_materialbutton_2"
                     android:layout_marginEnd="15dp"
                     android:textColor="@color/light_grey"
-                    android:text="@string/criar_tarefa"
+                    android:text="@string/salvar"
                     android:backgroundTint="@color/holo_blue_dark"
                     app:cornerRadius="50dp"
                     android:layout_weight="50"
