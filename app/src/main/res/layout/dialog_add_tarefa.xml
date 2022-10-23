@@ -44,7 +44,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:tint="@color/holo_red_dark"
-                android:background="@color/white"/>
+                android:background="@color/transparent"/>
             <com.google.android.material.textfield.TextInputLayout
                 app:boxBackgroundColor="@color/light_grey"
                 android:id="@+id/add_tarefa_dialog_textinputlayout_1"

@@ -154,7 +154,8 @@
     </com.google.android.material.button.MaterialButton>
 
     <com.google.android.material.button.MaterialButton
-        android:backgroundTint="@color/grey"
+        android:background="@drawable/border"
+        app:backgroundTintMode="add"
         android:textColor="@color/dark_grey"
         android:id="@+id/activity_main_materialbutton_1"
         android:layout_width="match_parent"

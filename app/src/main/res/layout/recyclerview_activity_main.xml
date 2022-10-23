@@ -23,8 +23,9 @@
     </ImageButton>
     <com.google.android.material.button.MaterialButton
         android:stateListAnimator="@null"
-        app:rippleColor="@color/light_grey"
-        android:backgroundTint="@color/grey"
+        app:rippleColor="@color/red"
+        android:background="@drawable/border"
+        app:backgroundTintMode="add"
         android:textColor="@color/dark_grey"
         android:id="@+id/recyclerview_activity_main_materialbutton_1"
         android:layout_width="match_parent"

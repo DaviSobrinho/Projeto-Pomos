@@ -1,17 +1,18 @@
 package com.example.pomos.view
 
-import android.animation.Animator
+import android.annotation.SuppressLint
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
-import android.graphics.Matrix
-import android.graphics.Paint
-import android.graphics.PorterDuff
 import android.os.Bundle
-import android.view.animation.Animation
+import android.os.Handler
+import android.view.MotionEvent
+import android.view.View
+import android.view.View.OnLongClickListener
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -32,6 +33,7 @@ private var timeLimit = 1500.0
 
 class MainActivity : AppCompatActivity() {
     var currentDialog = DialogFragment()
+    @SuppressLint("ClickableViewAccessibility")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -40,18 +42,9 @@ class MainActivity : AppCompatActivity() {
         iniciaDialogMaterialButton(binding.activityMainMaterialbutton1,AddTarefaDialog())
         iniciaDialogImageButton(binding.activityMainImageview2, AddTarefaDialog())
         configuraRecyclerView()
-        binding.activityMainImageview3.setOnClickListener{
-            binding.activityMainImageview3.startAnimation(AnimationUtils.loadAnimation(applicationContext,
-                androidx.appcompat.R.anim.abc_fade_in))
-            raiseTimer()
-        }
-        binding.activityMainImageview4.setOnClickListener{
-            binding.activityMainImageview4.startAnimation(AnimationUtils.loadAnimation(applicationContext,
-                androidx.appcompat.R.anim.abc_fade_in))
-            decreaseTimer()
-        }
 
-
+        configuraSetas(binding.activityMainImageview3,true,binding.activityMainTextView1)
+        configuraSetas(binding.activityMainImageview4,false,binding.activityMainTextView1)
 
         binding.activityMainMaterialbutton2.setOnClickListener{
             startStopTimer()
@@ -62,7 +55,6 @@ class MainActivity : AppCompatActivity() {
         serviceIntent = Intent(applicationContext,TimerService::class.java)
         registerReceiver(updateTime, IntentFilter(TimerService.TIMER_UPDATED))
     }
-
 
 
     private fun startStopTimer() {
@@ -95,6 +87,7 @@ class MainActivity : AppCompatActivity() {
     private fun resetTimer() {
         stopTimer()
         time = 1500.0
+        timeLimit = time
         binding.activityMainTextView1.text = getTimeStringFromDouble(time)
     }
 
@@ -161,5 +154,40 @@ class MainActivity : AppCompatActivity() {
             dialogFragment.show(supportFragmentManager, "CustomFragment")
         }
         currentDialog = dialogFragment
+    }
+    private fun configuraSetas(imageView: ImageView, boolean: Boolean, textView: TextView){
+        imageView.setOnClickListener{
+            if(boolean){
+                raiseTimer()
+            }else{
+                decreaseTimer()
+            }
+        }
+        imageView.setOnLongClickListener(object :
+            OnLongClickListener {
+            private val mHandler = Handler()
+            private val incrementRunnable: Runnable = object : Runnable {
+                override fun run() {
+                    mHandler.removeCallbacks(this)
+                    if (imageView.isPressed()) {
+
+                        if (!timerStarted){
+                            if(boolean){
+                                timeLimit += 20
+                            }else{
+                                timeLimit -= 20
+                            }
+                            time = timeLimit
+                            textView.text = getTimeStringFromDouble(timeLimit)
+                        }
+                        mHandler.postDelayed(this, 100)
+                    }
+                }
+            }
+            override fun onLongClick(view: View): Boolean {
+                mHandler.postDelayed(incrementRunnable, 0)
+                return true
+            }
+        })
     }
 }

@@ -4,6 +4,8 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
@@ -19,7 +21,6 @@ import com.google.android.material.button.MaterialButton
 class MainActivityRecyclerViewAdapter(private val context: Context, tarefa: List<Tarefa> = emptyList(),
 ) : RecyclerView.Adapter<MainActivityRecyclerViewAdapter.ViewHolder>() {
     private val tarefa = tarefa.toMutableList()
-
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun bind(tarefa: Tarefa) {
             val button = itemView.findViewById<MaterialButton>(R.id.recyclerview_activity_main_materialbutton_1)
@@ -42,6 +43,7 @@ class MainActivityRecyclerViewAdapter(private val context: Context, tarefa: List
                 showDialogFragment(itemView, nome.text.toString())
             }
             button.setOnClickListener{
+                button.startAnimation(AnimationUtils.loadAnimation(button.context, androidx.appcompat.R.anim.abc_popup_enter))
                 showDialogFragment(itemView, nome.text.toString())
             }
         }
