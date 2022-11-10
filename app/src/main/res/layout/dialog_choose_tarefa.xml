@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@drawable/round_outline"
     android:padding="0dp">
     <ScrollView
@@ -17,17 +17,27 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-
-            <TextView
-                android:gravity="center_vertical"
-                android:id="@+id/add_tarefa_dialog_textview_1"
-                android:layout_marginTop="15dp"
-                android:layout_marginStart="20dp"
-                android:layout_width="wrap_content"
-                android:layout_height="40dp"
+            <ImageView
+                android:scaleY="1.2"
+                android:scaleX="1.2"
+                android:id="@+id/choose_tarefa_dialog_imageview_1"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:text="@string/add_tarefa"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:src="@mipmap/redtag_foreground">
+            </ImageView>
+            <TextView
+                android:gravity="center_vertical"
+                android:id="@+id/choose_tarefa_dialog_textview_1"
+                android:layout_marginTop="10dp"
+                android:layout_width="250dp"
+                android:layout_height="60dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@id/choose_tarefa_dialog_imageview_1"
+                android:text="Escolha uma tarefa:"
                 android:textColor="@color/dark_grey"
                 android:textSize="24sp">
             </TextView>
@@ -35,7 +45,7 @@
             <ImageButton
                 android:scaleX="1.5"
                 android:scaleY="1.5"
-                android:id="@+id/add_tarefa_dialog_imagebutton_1"
+                android:id="@+id/choose_tarefa_dialog_imagebutton_1"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginTop="15dp"
@@ -45,74 +55,83 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:tint="@color/holo_red_dark"
                 android:background="@color/transparent"/>
-            <com.google.android.material.textfield.TextInputLayout
-                app:boxBackgroundColor="@color/grey"
-                android:id="@+id/add_tarefa_dialog_textinputlayout_1"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="70dp"
+                android:layout_height="60dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="75dp"
-                app:boxCornerRadiusTopEnd="0dp"
-                app:boxCornerRadiusBottomEnd="0dp"
-                app:boxCornerRadiusBottomStart="0dp"
-                app:boxCornerRadiusTopStart="15dp">
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/add_tarefa_dialog_textinputedittext_1"
-                    android:layout_width="match_parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="70dp"
+                android:orientation="horizontal">
+                <TextView
+                    android:textColor="@color/dark_grey"
+                    android:layout_weight="80"
+                    android:layout_width="1dp"
+                    android:id="@+id/choose_tarefa_dialog_textview_2"
+                    android:text=" Nome da tarefa:"
+                    android:textSize="15sp"
+                    android:gravity="center_vertical"
                     android:layout_height="60dp"
-                    android:hint="Nome da tarefa:">
-                </com.google.android.material.textfield.TextInputEditText>
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:background="@drawable/round_outline_top_left_only"
+                    android:backgroundTint="@color/grey">
 
+                </TextView>
+                <Spinner
+                    android:layout_weight="100"
+                    android:background="@color/grey"
+                    android:id="@+id/choose_tarefa_dialog_spinner_1"
+                    android:layout_width="1dp"
+                    android:layout_height="60dp">
+                </Spinner>
+
+            </LinearLayout>
             <ImageButton
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="70dp"
                 android:backgroundTint="@color/dark_grey"
                 android:background="@drawable/round_outline_top_right_only"
                 android:layout_marginEnd="15dp"
-                android:id="@+id/add_tarefa_dialog_imagebutton_2"
+                android:id="@+id/choose_tarefa_dialog_imagebutton_2"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                app:srcCompat="@android:drawable/ic_menu_edit"
-                app:layout_constraintTop_toTopOf="@id/add_tarefa_dialog_textinputlayout_1"
-                app:layout_constraintStart_toEndOf="@+id/add_tarefa_dialog_textinputlayout_1"
-                />
+                app:srcCompat="@mipmap/down_arrow_foreground"
+                app:tint="@color/light_grey"/>
 
             <com.google.android.material.textfield.TextInputLayout
+
+
                 app:boxBackgroundColor="@color/grey"
-                android:id="@+id/add_tarefa_dialog_textinputlayout_2"
+                android:id="@+id/choose_tarefa_dialog_textinputlayout_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginTop="145dp"
                 android:layout_marginStart="15dp"
-                android:layout_marginEnd="75dp"
-                app:boxCornerRadiusTopEnd="0dp"
+                android:layout_marginEnd="15dp"
+                app:boxCornerRadiusTopEnd="15dp"
                 app:boxCornerRadiusBottomEnd="0dp"
                 app:boxCornerRadiusBottomStart="0dp"
                 app:boxCornerRadiusTopStart="15dp">
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/add_tarefa_dialog_textinputedittext_2"
+                    android:longClickable="false"
+                    android:focusable="false"
+                    android:clickable="false"
+                    android:textColor="@color/black"
+                    android:textIsSelectable="true"
+                    android:inputType="none"
+                    android:id="@+id/choose_tarefa_dialog_textinputedittext_1"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:hint="Descrição:">
+                    android:hint="Descriçao:">
                 </com.google.android.material.textfield.TextInputEditText>
             </com.google.android.material.textfield.TextInputLayout>
 
-            <ImageButton
-                android:backgroundTint="@color/dark_grey"
-                android:background="@drawable/round_outline_top_right_only"
-                android:layout_marginEnd="15dp"
-                android:id="@+id/add_tarefa_dialog_imagebutton_3"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                app:srcCompat="@android:drawable/ic_menu_edit"
-                app:layout_constraintTop_toTopOf="@id/add_tarefa_dialog_textinputlayout_2"
-                app:layout_constraintStart_toEndOf="@+id/add_tarefa_dialog_textinputlayout_2"/>
             <LinearLayout
-                android:id="@+id/add_tarefa_dialog_linearlayout_1"
+                android:id="@+id/choose_tarefa_dialog_linearlayout_1"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
@@ -122,17 +141,17 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="15dp">
                 <LinearLayout
-                    android:id="@+id/add_tarefa_dialog_linearlayout_2"
+                    android:id="@+id/choose_tarefa_dialog_linearlayout_2"
+                    android:layout_marginEnd="0dp"
                     android:layout_weight="50"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="60dp">
                     <TextView
                         android:textColor="@color/dark_grey"
-                        android:id="@+id/add_tarefa_dialog_textview_2"
+                        android:id="@+id/choose_tarefa_dialog_textview_3"
                         android:layout_width="100dp"
                         android:layout_height="match_parent"
-                        android:textSize="13sp"
                         android:text="Prioridade:"
                         android:background="@drawable/round_outline_top_left_only"
                         android:backgroundTint="@color/grey"
@@ -145,90 +164,92 @@
                         <ImageView
                             android:background="@color/transparent"
                             android:backgroundTint="@color/transparent"
-                            android:id="@+id/add_tarefa_dialog_imageview_1"
+                            android:id="@+id/choose_tarefa_dialog_imageview_2"
                             android:layout_width="60dp"
                             android:layout_height="60dp"
                             android:src="@mipmap/redtag_foreground">
                         </ImageView>
                     </LinearLayout>
-                    <Spinner
-                        android:background="@color/grey"
-                        android:id="@+id/add_tarefa_dialog_spinner_2"
-                        android:layout_weight="50"
+                    <TextView
+                        android:textSize="18sp"
+                        android:textColor="@color/black"
+                        android:gravity="center"
+                        android:text=""
+                        android:background="@drawable/round_outline_top_right_only"
+                        android:backgroundTint="@color/grey"
+                        android:id="@+id/choose_tarefa_dialog_textview_4"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
-                    </Spinner>
-                    <ImageButton
-                        android:id="@+id/add_tarefa_dialog_imagebutton_5"
-                        android:layout_weight="0"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:background="@drawable/round_outline_top_right_only"
-                        android:backgroundTint="@color/dark_grey"
-                        app:tint="@color/light_grey"
-                        android:backgroundTintMode="src_atop"
-                        android:src="@mipmap/down_arrow_foreground">
-                    </ImageButton>
+                    </TextView>
+
                 </LinearLayout>
+
             </LinearLayout>
             <LinearLayout
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="295dp"
-                android:id="@+id/add_tarefa_dialog_linearlayout_3"
+                android:id="@+id/choose_tarefa_dialog_linearlayout_3"
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="15dp"
                 android:layout_weight="50"
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="60dp">
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/add_tarefa_dialog_textinputlayout_3"
+                    android:id="@+id/choose_tarefa_dialog_textinputlayout_2"
                     app:boxBackgroundColor="@color/grey"
                     app:boxCornerRadiusTopStart="15dp"
-                    app:boxCornerRadiusTopEnd="0dp"
+                    app:boxCornerRadiusTopEnd="15dp"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="50">
+                    android:layout_height="match_parent">
                     <com.google.android.material.textfield.TextInputEditText
+                        android:longClickable="false"
+                        android:focusable="false"
+                        android:clickable="false"
                         android:hint="Quantidade de ciclos:"
                         android:textAlignment="center"
-                        android:text="1"
-                        android:inputType="number"
-                        android:digits="1234567890"
-                        android:id="@+id/add_tarefa_dialog_textinputedittext_3"
+                        android:text=""
+                        android:textIsSelectable="true"
+                        android:inputType="none"
+                        android:id="@+id/choose_tarefa_dialog_textinputedittext_2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
                     </com.google.android.material.textfield.TextInputEditText>
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_weight="0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-                    <ImageButton
-                        android:id="@+id/add_tarefa_dialog_imagebutton_6"
-                        android:rotation="180"
-                        android:layout_weight="0"
-                        android:layout_width="60dp"
-                        android:layout_height="30dp"
-                        android:background="@drawable/round_outline_bottom_left_only"
-                        android:backgroundTint="@color/dark_grey"
-                        app:tint="@color/light_grey"
-                        android:backgroundTintMode="src_atop"
-                        android:src="@mipmap/down_arrow_foreground">
-                    </ImageButton>
-                    <ImageButton
-                        android:id="@+id/add_tarefa_dialog_imagebutton_7"
-                        android:layout_weight="0"
-                        android:layout_width="60dp"
-                        android:layout_height="30dp"
-                        android:background="@color/dark_grey"
-                        app:tint="@color/light_grey"
-                        android:src="@mipmap/down_arrow_foreground">
-                    </ImageButton>
-                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/choose_tarefa_dialog_linearlayout_4"
+                android:layout_marginTop="440dp"
+                app:layout_constraintTop_toTopOf="parent"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="70dp">
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/choose_tarefa_dialog_materialbutton_1"
+                    android:layout_marginStart="15dp"
+                    android:textColor="@color/light_grey"
+                    android:text="Cancelar"
+                    android:backgroundTint="@color/dark_grey"
+                    app:cornerRadius="50dp"
+                    android:layout_weight="50"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginEnd="5dp">
+                </com.google.android.material.button.MaterialButton>
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/choose_tarefa_dialog_materialbutton_2"
+                    android:layout_marginEnd="15dp"
+                    android:textColor="@color/light_grey"
+                    android:text="Confirmar"
+                    android:backgroundTint="@color/holo_blue_dark"
+                    app:cornerRadius="50dp"
+                    android:layout_weight="50"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_marginStart="5dp">
+                </com.google.android.material.button.MaterialButton>
             </LinearLayout>
             <LinearLayout
                 android:layout_marginStart="15dp"
@@ -251,31 +272,26 @@
                     app:layout_constraintEnd_toEndOf="parent">
                     <com.google.android.material.textfield.TextInputLayout
                         android:layout_weight="50"
-                        android:id="@+id/add_tarefa_dialog_textinputlayout_4"
+                        android:id="@+id/choose_tarefa_dialog_textinputlayout_3"
                         app:boxBackgroundColor="@color/grey"
                         app:boxCornerRadiusTopStart="15dp"
-                        app:boxCornerRadiusTopEnd="0dp"
+                        app:boxCornerRadiusTopEnd="15dp"
                         android:layout_width="match_parent"
                         android:layout_height="60dp">
                         <com.google.android.material.textfield.TextInputEditText
-                            android:maxLength="5"
-                            android:hint="Foco:"
+                            android:longClickable="false"
+                            android:focusable="false"
+                            android:clickable="false"
+                            android:hint="Tempo de foco:"
                             android:textAlignment="center"
+                            android:text=""
                             android:inputType="datetime"
                             android:digits="1234567890"
-                            android:id="@+id/add_tarefa_dialog_textinputedittext_4"
+                            android:id="@+id/choose_tarefa_dialog_textinputedittext_3"
                             android:layout_width="match_parent"
                             android:layout_height="60dp">
                         </com.google.android.material.textfield.TextInputEditText>
                     </com.google.android.material.textfield.TextInputLayout>
-                    <ImageButton
-                        android:layout_weight="100"
-                        android:backgroundTint="@color/dark_grey"
-                        android:background="@drawable/round_outline_top_right_only"
-                        android:id="@+id/add_tarefa_dialog_imagebutton_4"
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        app:srcCompat="@android:drawable/ic_menu_edit"/>
                 </LinearLayout>
                 <LinearLayout
                     android:layout_marginStart="5dp"
@@ -284,72 +300,30 @@
                     android:layout_width="match_parent"
                     android:layout_height="60dp">
                     <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/add_tarefa_dialog_textinputlayout_5"
+                        android:id="@+id/choose_tarefa_dialog_textinputlayout_4"
                         android:layout_weight="50"
                         app:boxBackgroundColor="@color/grey"
                         app:boxCornerRadiusTopStart="15dp"
-                        app:boxCornerRadiusTopEnd="0dp"
+                        app:boxCornerRadiusTopEnd="15dp"
                         android:layout_width="match_parent"
                         android:layout_height="60dp">
                         <com.google.android.material.textfield.TextInputEditText
-                            android:maxLength="5"
+                            android:longClickable="false"
+                            android:focusable="false"
+                            android:clickable="false"
                             android:layout_weight="50"
-                            android:hint="Descanso:"
+                            android:hint="Tempo de descanso:"
                             android:textAlignment="center"
+                            android:text=""
                             android:inputType="datetime"
                             android:digits="1234567890"
-                            android:id="@+id/add_tarefa_dialog_textinputedittext_5"
+                            android:id="@+id/choose_tarefa_dialog_textinputedittext_4"
                             android:layout_width="match_parent"
                             android:layout_height="60dp">
                         </com.google.android.material.textfield.TextInputEditText>
                     </com.google.android.material.textfield.TextInputLayout>
-                    <ImageButton
-                        android:layout_weight="100"
-                        android:backgroundTint="@color/dark_grey"
-                        android:background="@drawable/round_outline_top_right_only"
-                        android:id="@+id/add_tarefa_dialog_imagebutton_8"
-                        android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        app:srcCompat="@android:drawable/ic_menu_edit"/>
                 </LinearLayout>
             </LinearLayout>
-
-
-            <LinearLayout
-                android:id="@+id/add_tarefa_dialog_linearlayout_4"
-                android:layout_marginTop="440dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:orientation="horizontal"
-                android:layout_width="match_parent"
-                android:layout_height="70dp">
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/add_tarefa_dialog_materialbutton_1"
-                    android:layout_marginStart="15dp"
-                    android:textColor="@color/light_grey"
-                    android:text="@string/cancelar"
-                    android:backgroundTint="@color/dark_grey"
-                    app:cornerRadius="50dp"
-                    android:layout_weight="50"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_marginEnd="5dp">
-                </com.google.android.material.button.MaterialButton>
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/add_tarefa_dialog_materialbutton_2"
-                    android:layout_marginEnd="15dp"
-                    android:textColor="@color/light_grey"
-                    android:text="@string/criar_tarefa"
-                    android:backgroundTint="@color/holo_blue_dark"
-                    app:cornerRadius="50dp"
-                    android:layout_weight="50"
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_marginStart="5dp">
-                </com.google.android.material.button.MaterialButton>
-            </LinearLayout>
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
 

@@ -1,7 +1,10 @@
 package com.example.pomos.view
 
+import DurationPicker
 import android.app.AlertDialog
 import android.app.Dialog
+import android.app.TimePickerDialog
+import android.app.TimePickerDialog.OnTimeSetListener
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -17,6 +20,9 @@ import com.example.pomos.databinding.DialogAddTarefaBinding
 import com.example.pomos.viewmodel.AdicionarTarefaDialog
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
+import java.time.Duration
+import java.util.*
+
 
 private var _binding: DialogAddTarefaBinding? = null
 private val binding get() = _binding!!
@@ -24,6 +30,8 @@ private val binding get() = _binding!!
 class AddTarefaDialog : DialogFragment() {
 
 
+        val minute : Int = 0
+        val second : Int = 0
         override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
             _binding = DialogAddTarefaBinding.inflate(LayoutInflater.from(context))
             return AlertDialog.Builder(requireActivity())
@@ -33,11 +41,13 @@ class AddTarefaDialog : DialogFragment() {
         override fun onStart() {
             dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             super.onStart()
-            val width = (resources.displayMetrics.widthPixels * 0.90).toInt()
-            val height = (resources.displayMetrics.heightPixels * 0.80).toInt()
+            val width = (resources.displayMetrics.widthPixels * 0.96).toInt()
+            val height = (resources.displayMetrics.heightPixels * 0.96).toInt()
             dialog!!.window?.setLayout(width, ViewGroup.LayoutParams.WRAP_CONTENT)
             configuraBotaoLapis(binding.addTarefaDialogImagebutton2, binding.addTarefaDialogTextinputedittext1)
             configuraBotaoLapis(binding.addTarefaDialogImagebutton3, binding.addTarefaDialogTextinputedittext2)
+            configuraBotaoLapis(binding.addTarefaDialogImagebutton4,binding.addTarefaDialogTextinputedittext3)
+            configuraBotaoLapis(binding.addTarefaDialogImagebutton8,binding.addTarefaDialogTextinputedittext4)
             configuraSpinner(binding.addTarefaDialogSpinner2,requireContext(), listOf("Alta","Média","Baixa"))
             configuraBotaoSpinner(binding.addTarefaDialogImagebutton5,binding.addTarefaDialogSpinner2)
             configuraBotaoContador(binding.addTarefaDialogImagebutton6, binding.addTarefaDialogTextinputedittext3, true)
@@ -46,6 +56,9 @@ class AddTarefaDialog : DialogFragment() {
             configuraBotaoSair(binding.addTarefaDialogImagebutton1)
             configuraBotaoCancelar(binding.addTarefaDialogMaterialbutton1)
             configuraImagemSpiner(binding.addTarefaDialogImageview1,binding.addTarefaDialogSpinner2)
+            binding.addTarefaDialogTextview2.setOnClickListener{
+                binding.addTarefaDialogSpinner2.performClick()
+            }
             val add = AdicionarTarefaDialog()
             val dialogv = dialog
             if (dialogv != null) {
@@ -53,15 +66,62 @@ class AddTarefaDialog : DialogFragment() {
                     binding.addTarefaDialogTextinputedittext1,
                     binding.addTarefaDialogTextinputedittext2,
                     binding.addTarefaDialogSpinner2,
-                    binding.addTarefaDialogTextinputedittext3,requireContext(),dialogv)
+                    binding.addTarefaDialogTextinputedittext3,requireContext(),dialogv,
+                    binding.addTarefaDialogTextinputedittext4,
+                    binding.addTarefaDialogTextinputedittext5)
             }
+            corrigeTempo(binding.addTarefaDialogTextinputedittext5)
+            corrigeTempo(binding.addTarefaDialogTextinputedittext4)
         }
 
+
+
+        private fun corrigeTempo (textInputEditText: TextInputEditText){
+            textInputEditText.addTextChangedListener(object : TextWatcher {
+                override fun afterTextChanged(s: Editable?) {
+
+                }
+                override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+                }
+                override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                    textInputEditText.removeTextChangedListener(this)
+                    var text = textInputEditText.text.toString().replace(":","")
+                    if(text.length == 4 ){
+                        text = text.replace(":","")
+                        text = text.substring(0,2)+":"+text.substring(2)
+                        textInputEditText.setText(text)
+                        if(textInputEditText.text.toString().replace(":","").toInt() > 5959){
+                            textInputEditText.setText("59:59")
+                        }
+                    }
+                    if(text.length == 3 ){
+                        text = text.replace(":","")
+                        text = text.substring(0,2)+":"+text.substring(2)
+                        textInputEditText.setText(text)
+                    }
+                    if(text.length >= 5 ){
+                        text = text.replace(":","")
+                        text = text.substring(0,2)+":"+text.substring(2,4)
+                        textInputEditText.setText(text)
+                        if(textInputEditText.text.toString().replace(":","").toInt() > 5959){
+                            textInputEditText.setText("59:59")
+                        }
+                    }
+                    if(text.isNotEmpty()){
+                        textInputEditText.setSelection(textInputEditText.text.toString().lastIndex+1)
+                    }
+                    textInputEditText.addTextChangedListener(this)
+                    return
+                }
+            })
+        }
 
         override fun onDestroyView() {
             super.onDestroyView()
             _binding = null
         }
+
         private fun corrigePomodoros (textInputEditText: TextInputEditText){
             binding.addTarefaDialogTextinputedittext3.addTextChangedListener(object : TextWatcher {
                 override fun afterTextChanged(s: Editable?) {
@@ -92,6 +152,7 @@ class AddTarefaDialog : DialogFragment() {
                         text = text.takeLast(1)
                         textInputEditText.setText(text)
                     }
+
                     textInputEditText.setSelection(textInputEditText.text.toString().lastIndex+1)
                     return
                 }

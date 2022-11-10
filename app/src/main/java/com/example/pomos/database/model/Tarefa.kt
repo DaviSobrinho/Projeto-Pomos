@@ -8,5 +8,7 @@ class Tarefa(
     @PrimaryKey val nome : String,
     val descricao : String,
     val prioridade : String,
-    val pomodoros : Int
+    val pomodoros : Int,
+    val foco : Int,
+    val descanso : Int,
 )

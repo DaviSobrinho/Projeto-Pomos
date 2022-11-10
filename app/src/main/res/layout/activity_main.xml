@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/light_grey">
     <ImageView
+        android:id="@+id/activity_main_imageview1"
         android:layout_width="match_parent"
         android:layout_height="220dp"
         app:layout_constraintTop_toTopOf="parent"
@@ -15,8 +16,8 @@
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
         android:background="@drawable/border_bottom_only">
-
     </ImageView>
+
     <TextView
         android:background="@drawable/border"
         android:textColor="@color/dark_grey"
@@ -38,8 +39,21 @@
         android:layout_marginStart="15dp"
         android:layout_marginEnd="15dp"
         app:backgroundTint="@color/dark_grey"
-        android:textColor="@color/white"
-        android:id="@+id/activity_main_textview_4"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="80dp"
+        android:gravity="center">
+    </com.google.android.material.button.MaterialButton>
+    <com.google.android.material.button.MaterialButton
+        app:cornerRadius="50dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        app:backgroundTint="@color/dark_grey"
+        android:textColor="@color/light_grey"
+        android:id="@+id/activity_main_materialbutton_4"
         android:layout_width="match_parent"
         android:layout_height="80dp"
         app:layout_constraintTop_toTopOf="parent"
@@ -57,8 +71,10 @@
         android:rotation="270"
         app:tint="@color/dark_grey"
         android:src="@mipmap/play_foreground"
-        android:layout_width="60dp"
+        android:layout_width="50dp"
         android:layout_height="60dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintEnd_toEndOf="@id/activity_main_imageview1"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@id/activity_main_text_view_1"
         android:layout_marginTop="160dp">
@@ -72,8 +88,10 @@
         app:tint="@color/dark_grey"
         android:rotation="90"
         android:src="@mipmap/play_foreground"
-        android:layout_width="60dp"
+        android:layout_width="50dp"
         android:layout_height="60dp"
+        android:layout_marginEnd="4dp"
+        app:layout_constraintEnd_toEndOf="@id/activity_main_imageview1"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@id/activity_main_text_view_1"
         android:layout_marginTop="220dp">
@@ -93,8 +111,9 @@
         app:tint="@color/dark_grey">
     </ImageButton>
     <TextView
+        android:background="@drawable/border"
         android:id="@+id/recyclerview_activity_main_textview_1"
-        android:layout_width="wrap_content"
+        android:layout_width="120dp"
         android:layout_height="40dp"
         android:layout_marginTop="20dp"
         app:layout_constraintTop_toTopOf="parent"
@@ -102,6 +121,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_gravity="center_horizontal"
         android:textColor="@color/dark_grey"
+        android:textAlignment="center"
         android:text="POMOS"
         android:textSize="28sp">
     </TextView>
@@ -160,7 +180,7 @@
         android:id="@+id/activity_main_materialbutton_1"
         android:layout_width="match_parent"
         android:layout_height="60dp"
-        android:layout_marginTop="380dp"
+        android:layout_marginTop="370dp"
         android:layout_marginEnd="15dp"
         android:layout_marginStart="15dp"
         android:elevation="1dp"

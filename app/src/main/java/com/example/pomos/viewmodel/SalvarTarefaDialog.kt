@@ -13,8 +13,8 @@ import com.google.android.material.textfield.TextInputEditText
 
 class SalvarTarefaDialog {
     fun salvaTarefa(
-        botaosalva : MaterialButton, nome : TextInputEditText, descricao : TextInputEditText, titulo : TextView, prioridade : Spinner, pomodoros : TextInputEditText, context: Context, dialog : Dialog
-    ) {
+        botaosalva : MaterialButton, nome : TextInputEditText, descricao : TextInputEditText, titulo : TextView, prioridade : Spinner, pomodoros : TextInputEditText, context: Context, dialog : Dialog,
+    foco : TextInputEditText, descanso : TextInputEditText) {
         var nomeSalvo = nome.text.toString()
         val db = AppDatabase.instancia(context)
         botaosalva.setOnClickListener() {
@@ -22,13 +22,17 @@ class SalvarTarefaDialog {
             val descricaot = descricao.text.toString()
             val prioridadet = prioridade.selectedItem.toString()
             val pomodorost = pomodoros.text.toString().toInt()
+            val foco = foco.text.toString().toInt()
+            val descanso = descanso.text.toString().toInt()
             try{
                 db.funDao().insertTarefa(
                     Tarefa(
                         nome = nomet,
                         pomodoros = pomodorost,
                         descricao = descricaot,
-                        prioridade = prioridadet
+                        prioridade = prioridadet,
+                        foco = foco,
+                        descanso = descanso
                     )
                 )
                 Toast.makeText(context, "Tarefa atualizada!!", Toast.LENGTH_SHORT).show()
@@ -42,7 +46,9 @@ class SalvarTarefaDialog {
                             nome = nomet,
                             pomodoros = pomodorost,
                             descricao = descricaot,
-                            prioridade = prioridadet
+                            prioridade = prioridadet,
+                            foco = foco,
+                            descanso = descanso
                         )
                     )
                     Toast.makeText(context, "Tarefa atualizada!!", Toast.LENGTH_SHORT).show()

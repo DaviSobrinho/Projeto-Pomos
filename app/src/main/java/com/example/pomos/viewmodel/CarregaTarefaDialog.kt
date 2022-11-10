@@ -11,4 +11,6 @@ class CarregaTarefaDialog(context: Context, val nome: String) {
     val prioridade = tarefa.prioridade
     val descricao = tarefa.descricao
     val pomodoros = tarefa.pomodoros
+    val foco = tarefa.foco
+    val descanso = tarefa.descanso
 }

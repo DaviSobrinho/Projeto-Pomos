@@ -28,6 +28,7 @@
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/round_outline.xml" value="0.182" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/round_outline_50.xml" value="0.117" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/round_outline_50_bottom_only_no_padding.xml" value="0.117" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/round_outline_50_top_only_no_padding.xml" value="0.117" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/round_outline_bottom_left_only.xml" value="0.117" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/round_outline_bottom_right_only.xml" value="0.117" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/round_outline_left_only.xml" value="0.117" />
@@ -41,8 +42,9 @@
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout-v31/dialog_add_tarefa.xml" value="0.12552083333333333" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout/add_tarefa_dialog_spinner_layout.xml" value="0.22" />
-        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout/dialog_add_tarefa.xml" value="0.2" />
-        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout/dialog_edit_tarefa.xml" value="0.1956521739130435" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout/dialog_add_tarefa.xml" value="0.33" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout/dialog_choose_tarefa.xml" value="0.25" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout/dialog_edit_tarefa.xml" value="0.25" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout/recyclerview_activity_main.xml" value="0.25" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout/scrollview_activity_main.xml" value="0.22" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout/spinner_dropdown.xml" value="0.1956521739130435" />

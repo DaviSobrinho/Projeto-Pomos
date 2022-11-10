@@ -37,6 +37,7 @@ class MainActivityRecyclerViewAdapter(private val context: Context, tarefa: List
             if (prioridadeValidador == "Baixa") {
                 prioridade.setImageResource(R.mipmap.greentag_foreground)
             }
+
             val more = itemView.findViewById<ImageButton>(R.id.recyclerview_activity_main_imagebutton_1)
             more.setImageResource(R.drawable.more_foreground)
             more.setOnClickListener{
@@ -45,6 +46,9 @@ class MainActivityRecyclerViewAdapter(private val context: Context, tarefa: List
             button.setOnClickListener{
                 button.startAnimation(AnimationUtils.loadAnimation(button.context, androidx.appcompat.R.anim.abc_popup_enter))
                 showDialogFragment(itemView, nome.text.toString())
+            }
+            prioridade.setOnClickListener{
+                button.performClick()
             }
         }
         private fun showDialogFragment(view: View, nome : String) {

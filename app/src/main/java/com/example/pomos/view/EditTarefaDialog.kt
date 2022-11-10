@@ -33,8 +33,8 @@ class EditTarefaDialog(val nome: String) : DialogFragment() {
     override fun onStart() {
         dialog?.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         super.onStart()
-        val width = (resources.displayMetrics.widthPixels * 0.90).toInt()
-        val height = (resources.displayMetrics.heightPixels * 0.80).toInt()
+        val width = (resources.displayMetrics.widthPixels * 0.96).toInt()
+        val height = (resources.displayMetrics.heightPixels * 0.96).toInt()
         dialog!!.window?.setLayout(width, ViewGroup.LayoutParams.WRAP_CONTENT)
         configuraBotaoLapis(binding.editTarefaDialogImagebutton2, binding.editTarefaDialogTextinputedittext1)
         configuraBotaoLapis(binding.editTarefaDialogImagebutton3, binding.editTarefaDialogTextinputedittext2)
@@ -45,6 +45,9 @@ class EditTarefaDialog(val nome: String) : DialogFragment() {
         corrigePomodoros(binding.editTarefaDialogTextinputedittext3)
         configuraBotaoSair(binding.editTarefaDialogImagebutton1)
         configuraImagemSpiner(binding.editTarefaDialogImageview2,binding.editTarefaDialogSpinner2)
+        binding.editTarefaDialogTextview2.setOnClickListener{
+            binding.editTarefaDialogSpinner2.performClick()
+        }
         val salva = SalvarTarefaDialog()
         val exclui = ExcluirTarefaDialog()
         val dialogv = dialog
@@ -55,7 +58,9 @@ class EditTarefaDialog(val nome: String) : DialogFragment() {
                 binding.editTarefaDialogTextinputedittext2,
                 binding.editTarefaDialogTextview1,
                 binding.editTarefaDialogSpinner2,
-                binding.editTarefaDialogTextinputedittext3,requireContext(),dialogv)
+                binding.editTarefaDialogTextinputedittext3,requireContext(),dialogv,
+                binding.editTarefaDialogTextinputedittext4,
+                binding.editTarefaDialogTextinputedittext5)
             exclui.excluiTarefa(binding.editTarefaDialogMaterialbutton1,binding.editTarefaDialogTextinputedittext1,requireContext(),dialogv)
         }
     }
@@ -65,6 +70,8 @@ class EditTarefaDialog(val nome: String) : DialogFragment() {
         binding.editTarefaDialogTextinputedittext1.setText(carregaTarefa.nome)
         binding.editTarefaDialogTextinputedittext2.setText(carregaTarefa.descricao)
         binding.editTarefaDialogTextinputedittext3.setText(carregaTarefa.pomodoros.toString())
+        binding.editTarefaDialogTextinputedittext4.setText(carregaTarefa.foco.toString())
+        binding.editTarefaDialogTextinputedittext5.setText(carregaTarefa.descanso.toString())
         if (carregaTarefa.prioridade == "Alta"){
             binding.editTarefaDialogSpinner2.setSelection(1)
             binding.editTarefaDialogImageview1.setImageResource(R.mipmap.redtag_foreground)
