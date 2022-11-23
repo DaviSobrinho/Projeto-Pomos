@@ -68,22 +68,22 @@
                 <TextView
                     android:textColor="@color/dark_grey"
                     android:layout_weight="80"
-                    android:layout_width="1dp"
+                    android:layout_width="match_parent"
                     android:id="@+id/choose_tarefa_dialog_textview_2"
                     android:text=" Nome da tarefa:"
                     android:textSize="15sp"
                     android:gravity="center_vertical"
-                    android:layout_height="60dp"
+                    android:layout_height="match_parent"
                     android:background="@drawable/round_outline_top_left_only"
-                    android:backgroundTint="@color/grey">
+                    android:backgroundTint="@color/light_green_grey">
 
                 </TextView>
                 <Spinner
                     android:layout_weight="100"
-                    android:background="@color/grey"
+                    android:background="@color/light_green_grey"
                     android:id="@+id/choose_tarefa_dialog_spinner_1"
-                    android:layout_width="1dp"
-                    android:layout_height="60dp">
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
                 </Spinner>
 
             </LinearLayout>
@@ -91,19 +91,20 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 android:layout_marginTop="70dp"
-                android:backgroundTint="@color/dark_grey"
+                android:backgroundTint="@color/light_green"
                 android:background="@drawable/round_outline_top_right_only"
                 android:layout_marginEnd="15dp"
                 android:id="@+id/choose_tarefa_dialog_imagebutton_2"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 app:srcCompat="@mipmap/down_arrow_foreground"
-                app:tint="@color/light_grey"/>
+                app:tint="@color/dark_grey"/>
 
             <com.google.android.material.textfield.TextInputLayout
 
-
-                app:boxBackgroundColor="@color/grey"
+                app:hintTextColor="@color/dark_grey"
+                android:textColorHint="@color/dark_grey"
+                app:boxBackgroundColor="@color/light_green_grey"
                 android:id="@+id/choose_tarefa_dialog_textinputlayout_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -120,7 +121,7 @@
                     android:longClickable="false"
                     android:focusable="false"
                     android:clickable="false"
-                    android:textColor="@color/black"
+                    android:textColor="@color/dark_grey"
                     android:textIsSelectable="true"
                     android:inputType="none"
                     android:id="@+id/choose_tarefa_dialog_textinputedittext_1"
@@ -154,13 +155,13 @@
                         android:layout_height="match_parent"
                         android:text="Prioridade:"
                         android:background="@drawable/round_outline_top_left_only"
-                        android:backgroundTint="@color/grey"
+                        android:backgroundTint="@color/light_green_grey"
                         android:gravity="center">
                     </TextView>
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@color/grey">
+                        android:background="@color/light_green_grey">
                         <ImageView
                             android:background="@color/transparent"
                             android:backgroundTint="@color/transparent"
@@ -172,11 +173,11 @@
                     </LinearLayout>
                     <TextView
                         android:textSize="18sp"
-                        android:textColor="@color/black"
+                        android:textColor="@color/dark_grey"
                         android:gravity="center"
                         android:text=""
                         android:background="@drawable/round_outline_top_right_only"
-                        android:backgroundTint="@color/grey"
+                        android:backgroundTint="@color/light_green_grey"
                         android:id="@+id/choose_tarefa_dialog_textview_4"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
@@ -197,8 +198,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="60dp">
                 <com.google.android.material.textfield.TextInputLayout
+
+                    app:hintTextColor="@color/dark_grey"
+                    android:textColorHint="@color/dark_grey"
                     android:id="@+id/choose_tarefa_dialog_textinputlayout_2"
-                    app:boxBackgroundColor="@color/grey"
+                    app:boxBackgroundColor="@color/light_green_grey"
                     app:boxCornerRadiusTopStart="15dp"
                     app:boxCornerRadiusTopEnd="15dp"
                     android:layout_width="match_parent"
@@ -229,9 +233,9 @@
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/choose_tarefa_dialog_materialbutton_1"
                     android:layout_marginStart="15dp"
-                    android:textColor="@color/light_grey"
+                    android:textColor="@color/light_green_grey"
                     android:text="Cancelar"
-                    android:backgroundTint="@color/dark_grey"
+                    android:backgroundTint="@color/red"
                     app:cornerRadius="50dp"
                     android:layout_weight="50"
                     android:layout_width="match_parent"
@@ -241,9 +245,9 @@
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/choose_tarefa_dialog_materialbutton_2"
                     android:layout_marginEnd="15dp"
-                    android:textColor="@color/light_grey"
+                    android:textColor="@color/light_green_grey"
                     android:text="Confirmar"
-                    android:backgroundTint="@color/holo_blue_dark"
+                    android:backgroundTint="@color/light_green"
                     app:cornerRadius="50dp"
                     android:layout_weight="50"
                     android:layout_width="match_parent"
@@ -271,9 +275,12 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent">
                     <com.google.android.material.textfield.TextInputLayout
+
+                        app:hintTextColor="@color/dark_grey"
+                        android:textColorHint="@color/dark_grey"
                         android:layout_weight="50"
                         android:id="@+id/choose_tarefa_dialog_textinputlayout_3"
-                        app:boxBackgroundColor="@color/grey"
+                        app:boxBackgroundColor="@color/light_green_grey"
                         app:boxCornerRadiusTopStart="15dp"
                         app:boxCornerRadiusTopEnd="15dp"
                         android:layout_width="match_parent"
@@ -300,9 +307,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="60dp">
                     <com.google.android.material.textfield.TextInputLayout
+
+                        app:hintTextColor="@color/dark_grey"
+                        android:textColorHint="@color/dark_grey"
                         android:id="@+id/choose_tarefa_dialog_textinputlayout_4"
                         android:layout_weight="50"
-                        app:boxBackgroundColor="@color/grey"
+                        app:boxBackgroundColor="@color/light_green_grey"
                         app:boxCornerRadiusTopStart="15dp"
                         app:boxCornerRadiusTopEnd="15dp"
                         android:layout_width="match_parent"

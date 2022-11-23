@@ -56,7 +56,10 @@
                 app:tint="@color/holo_red_dark"
                 android:background="@color/transparent"/>
             <com.google.android.material.textfield.TextInputLayout
-                app:boxBackgroundColor="@color/grey"
+
+                app:hintTextColor="@color/dark_grey"
+                android:textColorHint="@color/dark_grey"
+                app:boxBackgroundColor="@color/light_green_grey"
                 android:id="@+id/edit_tarefa_dialog_textinputlayout_1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -70,6 +73,7 @@
                 app:boxCornerRadiusBottomStart="0dp"
                 app:boxCornerRadiusTopStart="15dp">
                 <com.google.android.material.textfield.TextInputEditText
+                    android:maxLength="60"
                     android:id="@+id/edit_tarefa_dialog_textinputedittext_1"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
@@ -78,7 +82,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <ImageButton
-                android:backgroundTint="@color/dark_grey"
+                android:backgroundTint="@color/light_green"
                 android:background="@drawable/round_outline_top_right_only"
                 android:layout_marginEnd="15dp"
                 android:id="@+id/edit_tarefa_dialog_imagebutton_2"
@@ -90,7 +94,10 @@
                 android:layout_marginTop="70dp"/>
 
             <com.google.android.material.textfield.TextInputLayout
-                app:boxBackgroundColor="@color/grey"
+
+                app:hintTextColor="@color/dark_grey"
+                android:textColorHint="@color/dark_grey"
+                app:boxBackgroundColor="@color/light_green_grey"
                 android:id="@+id/edit_tarefa_dialog_textinputlayout_2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -104,6 +111,7 @@
                 app:boxCornerRadiusBottomStart="0dp"
                 app:boxCornerRadiusTopStart="15dp">
                 <com.google.android.material.textfield.TextInputEditText
+                    android:maxLength="200"
                     android:id="@+id/edit_tarefa_dialog_textinputedittext_2"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
@@ -112,7 +120,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <ImageButton
-                android:backgroundTint="@color/dark_grey"
+                android:backgroundTint="@color/light_green"
                 android:background="@drawable/round_outline_top_right_only"
                 android:layout_marginEnd="15dp"
                 android:id="@+id/edit_tarefa_dialog_imagebutton_3"
@@ -145,13 +153,13 @@
                         android:layout_height="match_parent"
                         android:text="Prioridade:"
                         android:background="@drawable/round_outline_top_left_only"
-                        android:backgroundTint="@color/grey"
+                        android:backgroundTint="@color/light_green_grey"
                         android:gravity="center">
                     </TextView>
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@color/grey">
+                        android:background="@color/light_green_grey">
                         <ImageView
                             android:background="@color/transparent"
                             android:backgroundTint="@color/transparent"
@@ -162,7 +170,7 @@
                         </ImageView>
                     </LinearLayout>
                     <Spinner
-                        android:background="@color/grey"
+                        android:background="@color/light_green_grey"
                         android:id="@+id/edit_tarefa_dialog_spinner_2"
                         android:layout_weight="50"
                         android:layout_width="match_parent"
@@ -175,8 +183,8 @@
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:background="@drawable/round_outline_top_right_only"
-                        android:backgroundTint="@color/dark_grey"
-                        app:tint="@color/light_grey"
+                        android:backgroundTint="@color/light_green"
+                        app:tint="@color/dark_grey"
                         android:backgroundTintMode="src_atop"
                         android:src="@mipmap/down_arrow_foreground">
                     </ImageButton>
@@ -195,8 +203,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
                 <com.google.android.material.textfield.TextInputLayout
+
+                    app:hintTextColor="@color/dark_grey"
+                    android:textColorHint="@color/dark_grey"
                     android:id="@+id/edit_tarefa_dialog_textinputlayout_3"
-                    app:boxBackgroundColor="@color/grey"
+                    app:boxBackgroundColor="@color/light_green_grey"
                     app:boxCornerRadiusTopStart="15dp"
                     app:boxCornerRadiusTopEnd="0dp"
                     android:layout_width="match_parent"
@@ -226,8 +237,8 @@
                         android:layout_width="60dp"
                         android:layout_height="30dp"
                         android:background="@drawable/round_outline_bottom_left_only"
-                        android:backgroundTint="@color/dark_grey"
-                        app:tint="@color/light_grey"
+                        android:backgroundTint="@color/light_green"
+                        app:tint="@color/dark_grey"
                         android:backgroundTintMode="src_atop"
                         android:src="@mipmap/down_arrow_foreground">
                     </ImageButton>
@@ -236,8 +247,8 @@
                         android:layout_weight="0"
                         android:layout_width="60dp"
                         android:layout_height="30dp"
-                        android:background="@color/dark_grey"
-                        app:tint="@color/light_grey"
+                        android:background="@color/light_green"
+                        app:tint="@color/dark_grey"
                         android:src="@mipmap/down_arrow_foreground">
                     </ImageButton>
                 </LinearLayout>
@@ -262,9 +273,12 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent">
                     <com.google.android.material.textfield.TextInputLayout
+
+                        app:hintTextColor="@color/dark_grey"
+                        android:textColorHint="@color/dark_grey"
                         android:layout_weight="50"
                         android:id="@+id/edit_tarefa_dialog_textinputlayout_4"
-                        app:boxBackgroundColor="@color/grey"
+                        app:boxBackgroundColor="@color/light_green_grey"
                         app:boxCornerRadiusTopStart="15dp"
                         app:boxCornerRadiusTopEnd="0dp"
                         android:layout_width="match_parent"
@@ -282,7 +296,7 @@
                     </com.google.android.material.textfield.TextInputLayout>
                     <ImageButton
                         android:layout_weight="100"
-                        android:backgroundTint="@color/dark_grey"
+                        android:backgroundTint="@color/light_green"
                         android:background="@drawable/round_outline_top_right_only"
                         android:id="@+id/edit_tarefa_dialog_imagebutton_4"
                         android:layout_width="match_parent"
@@ -296,9 +310,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="60dp">
                     <com.google.android.material.textfield.TextInputLayout
+
+                        app:hintTextColor="@color/dark_grey"
+                        android:textColorHint="@color/dark_grey"
                         android:id="@+id/edit_tarefa_dialog_textinputlayout_5"
                         android:layout_weight="50"
-                        app:boxBackgroundColor="@color/grey"
+                        app:boxBackgroundColor="@color/light_green_grey"
                         app:boxCornerRadiusTopStart="15dp"
                         app:boxCornerRadiusTopEnd="0dp"
                         android:layout_width="match_parent"
@@ -317,7 +334,7 @@
                     </com.google.android.material.textfield.TextInputLayout>
                     <ImageButton
                         android:layout_weight="100"
-                        android:backgroundTint="@color/dark_grey"
+                        android:backgroundTint="@color/light_green"
                         android:background="@drawable/round_outline_top_right_only"
                         android:id="@+id/edit_tarefa_dialog_imagebutton_8"
                         android:layout_width="match_parent"
@@ -335,9 +352,9 @@
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/edit_tarefa_dialog_materialbutton_1"
                     android:layout_marginStart="15dp"
-                    android:textColor="@color/light_grey"
+                    android:textColor="@color/light_green_grey"
                     android:text="@string/excluir"
-                    android:backgroundTint="@color/dark_grey"
+                    android:backgroundTint="@color/red"
                     app:cornerRadius="50dp"
                     android:layout_weight="50"
                     android:layout_width="match_parent"
@@ -347,9 +364,9 @@
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/edit_tarefa_dialog_materialbutton_2"
                     android:layout_marginEnd="15dp"
-                    android:textColor="@color/light_grey"
+                    android:textColor="@color/light_green_grey"
                     android:text="@string/salvar"
-                    android:backgroundTint="@color/holo_blue_dark"
+                    android:backgroundTint="@color/light_green"
                     app:cornerRadius="50dp"
                     android:layout_weight="50"
                     android:layout_width="match_parent"

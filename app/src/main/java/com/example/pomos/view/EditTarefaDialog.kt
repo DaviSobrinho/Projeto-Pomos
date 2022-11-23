@@ -38,6 +38,8 @@ class EditTarefaDialog(val nome: String) : DialogFragment() {
         dialog!!.window?.setLayout(width, ViewGroup.LayoutParams.WRAP_CONTENT)
         configuraBotaoLapis(binding.editTarefaDialogImagebutton2, binding.editTarefaDialogTextinputedittext1)
         configuraBotaoLapis(binding.editTarefaDialogImagebutton3, binding.editTarefaDialogTextinputedittext2)
+        configuraBotaoLapis(binding.editTarefaDialogImagebutton4, binding.editTarefaDialogTextinputedittext4)
+        configuraBotaoLapis(binding.editTarefaDialogImagebutton8, binding.editTarefaDialogTextinputedittext5)
         configuraSpinner(binding.editTarefaDialogSpinner2,requireContext(), listOf("Prioridade:","Alta","Média","Baixa"))
         configuraBotaoSpinner(binding.editTarefaDialogImagebutton5,binding.editTarefaDialogSpinner2)
         configuraBotaoContador(binding.editTarefaDialogImagebutton6, binding.editTarefaDialogTextinputedittext3, true)
@@ -63,6 +65,8 @@ class EditTarefaDialog(val nome: String) : DialogFragment() {
                 binding.editTarefaDialogTextinputedittext5)
             exclui.excluiTarefa(binding.editTarefaDialogMaterialbutton1,binding.editTarefaDialogTextinputedittext1,requireContext(),dialogv)
         }
+        corrigeTempo(binding.editTarefaDialogTextinputedittext4)
+        corrigeTempo(binding.editTarefaDialogTextinputedittext5)
     }
     fun preencheDados(){
         binding.editTarefaDialogTextview1.text = nome
@@ -104,14 +108,11 @@ class EditTarefaDialog(val nome: String) : DialogFragment() {
                     text = text.replace("0","")
                     textInputEditText.setText(text)
                 }
-                if (textInputEditText.text.toString() == ""){
-                    num = 0
-                    textInputEditText.setText(num.toString())
-                    return
-                }
-                if (textInputEditText.text.toString().toInt() < 0){
-                    num = 0
-                    textInputEditText.setText(num.toString())
+
+                if(textInputEditText.text.toString().startsWith("0") && textInputEditText.text.toString().length == 1){
+                    var text = textInputEditText.text.toString()
+                    text = text.replace("0","1")
+                    textInputEditText.setText(text)
                 }
 
                 if(textInputEditText.text.toString().length >1 && textInputEditText.text.toString() != "10"){
@@ -119,7 +120,56 @@ class EditTarefaDialog(val nome: String) : DialogFragment() {
                     text = text.takeLast(1)
                     textInputEditText.setText(text)
                 }
-                textInputEditText.setSelection(textInputEditText.text.toString().lastIndex+1)
+
+                if(textInputEditText.text?.isNotEmpty() == true){
+                    textInputEditText.setSelection(textInputEditText.text.toString().lastIndex+1)
+                }
+                return
+            }
+        })
+    }
+    private fun corrigeTempo (textInputEditText: TextInputEditText){
+        textInputEditText.addTextChangedListener(object : TextWatcher {
+            override fun afterTextChanged(s: Editable?) {
+
+            }
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+
+            }
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                textInputEditText.removeTextChangedListener(this)
+                var text = textInputEditText.text.toString().replace(":","")
+                if(text.length == 4 ){
+                    text = text.replace(":","")
+                    text = text.substring(0,2)+":"+text.substring(2)
+                    textInputEditText.setText(text)
+                    if(textInputEditText.text.toString().replace(":","").toInt() > 5959){
+                        textInputEditText.setText("59:59")
+                    }else{
+                        val secs = textInputEditText.text.toString().substring(3,5).toInt()
+                        if(secs > 59){
+                            text = textInputEditText.text.toString().substring(0,3)+"59"
+                            textInputEditText.setText(text)
+                        }
+                    }
+                }
+                if(text.length == 3 ){
+                    text = text.replace(":","")
+                    text = text.substring(0,2)+":"+text.substring(2)
+                    textInputEditText.setText(text)
+                }
+                if(text.length >= 5 ){
+                    text = text.replace(":","")
+                    text = text.substring(0,2)+":"+text.substring(2,4)
+                    textInputEditText.setText(text)
+                    if(textInputEditText.text.toString().replace(":","").toInt() > 5959){
+                        textInputEditText.setText("59:59")
+                    }
+                }
+                if(text.isNotEmpty()){
+                    textInputEditText.setSelection(textInputEditText.text.toString().lastIndex+1)
+                }
+                textInputEditText.addTextChangedListener(this)
                 return
             }
         })

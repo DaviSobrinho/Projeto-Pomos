@@ -9,6 +9,6 @@ class Tarefa(
     val descricao : String,
     val prioridade : String,
     val pomodoros : Int,
-    val foco : Int,
-    val descanso : Int,
+    val foco : String,
+    val descanso : String,
 )

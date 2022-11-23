@@ -46,8 +46,8 @@ class AddTarefaDialog : DialogFragment() {
             dialog!!.window?.setLayout(width, ViewGroup.LayoutParams.WRAP_CONTENT)
             configuraBotaoLapis(binding.addTarefaDialogImagebutton2, binding.addTarefaDialogTextinputedittext1)
             configuraBotaoLapis(binding.addTarefaDialogImagebutton3, binding.addTarefaDialogTextinputedittext2)
-            configuraBotaoLapis(binding.addTarefaDialogImagebutton4,binding.addTarefaDialogTextinputedittext3)
-            configuraBotaoLapis(binding.addTarefaDialogImagebutton8,binding.addTarefaDialogTextinputedittext4)
+            configuraBotaoLapis(binding.addTarefaDialogImagebutton4,binding.addTarefaDialogTextinputedittext4)
+            configuraBotaoLapis(binding.addTarefaDialogImagebutton8,binding.addTarefaDialogTextinputedittext5)
             configuraSpinner(binding.addTarefaDialogSpinner2,requireContext(), listOf("Alta","Média","Baixa"))
             configuraBotaoSpinner(binding.addTarefaDialogImagebutton5,binding.addTarefaDialogSpinner2)
             configuraBotaoContador(binding.addTarefaDialogImagebutton6, binding.addTarefaDialogTextinputedittext3, true)
@@ -93,6 +93,12 @@ class AddTarefaDialog : DialogFragment() {
                         textInputEditText.setText(text)
                         if(textInputEditText.text.toString().replace(":","").toInt() > 5959){
                             textInputEditText.setText("59:59")
+                        }else{
+                            val secs = textInputEditText.text.toString().substring(3,5).toInt()
+                            if(secs > 59){
+                                text = textInputEditText.text.toString().substring(0,3)+"59"
+                                textInputEditText.setText(text)
+                            }
                         }
                     }
                     if(text.length == 3 ){
@@ -137,14 +143,11 @@ class AddTarefaDialog : DialogFragment() {
                         text = text.replace("0","")
                         textInputEditText.setText(text)
                     }
-                    if (textInputEditText.text.toString() == ""){
-                        num = 0
-                        textInputEditText.setText(num.toString())
-                        return
-                    }
-                    if (textInputEditText.text.toString().toInt() < 0){
-                        num = 0
-                        textInputEditText.setText(num.toString())
+
+                    if(textInputEditText.text.toString().startsWith("0") && textInputEditText.text.toString().length == 1){
+                        var text = textInputEditText.text.toString()
+                        text = text.replace("0","1")
+                        textInputEditText.setText(text)
                     }
 
                     if(textInputEditText.text.toString().length >1 && textInputEditText.text.toString() != "10"){
@@ -153,7 +156,9 @@ class AddTarefaDialog : DialogFragment() {
                         textInputEditText.setText(text)
                     }
 
-                    textInputEditText.setSelection(textInputEditText.text.toString().lastIndex+1)
+                    if(textInputEditText.text?.isNotEmpty() == true){
+                        textInputEditText.setSelection(textInputEditText.text.toString().lastIndex+1)
+                    }
                     return
                 }
             })

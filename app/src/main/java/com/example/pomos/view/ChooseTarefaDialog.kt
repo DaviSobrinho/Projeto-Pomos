@@ -81,12 +81,15 @@ class ChooseTarefaDialog : DialogFragment() {
     private fun configuraBotaoConfirmar(materialButton: MaterialButton){
         materialButton.setOnClickListener() {
             val name = binding.chooseTarefaDialogSpinner1.selectedItem.toString()
+            val ciclos = binding.chooseTarefaDialogTextinputedittext2.text.toString().toInt()
+            val foco = binding.chooseTarefaDialogTextinputedittext3.text.toString()
+            val descanso = binding.chooseTarefaDialogTextinputedittext4.text.toString()
             val imm = context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             if (!imm.isActive) {
                 imm.toggleSoftInput(InputMethodManager.HIDE_IMPLICIT_ONLY, 0)
             }
             if (dialog?.isShowing == true) {
-                (activity as MainActivity?)!!.updateMaterialButton(name)
+                (activity as MainActivity?)!!.trocaTarefa(name,ciclos,foco,descanso)
                 dialog?.dismiss()
             }
         }

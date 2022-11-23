@@ -11,6 +11,8 @@
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/arrowup_foreground.xml" value="0.117" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/border.xml" value="0.117" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/border_bottom_only.xml" value="0.117" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/border_square.xml" value="0.1875" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/border_top_bottom_flat_sides.xml" value="0.1875" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/down_arrow_background.xml" value="0.182" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/flag_background.xml" value="0.182" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/flag_foreground.xml" value="0.136" />
@@ -18,6 +20,7 @@
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/greenflag_foreground.xml" value="0.126" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/greentag_background.xml" value="0.117" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/ic_launcher_background.xml" value="0.182" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/logo_background.xml" value="0.1875" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/menu_background.xml" value="0.182" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/menu_foreground.xml" value="0.136" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/more_foreground.xml" value="0.126" />
@@ -33,6 +36,7 @@
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/round_outline_bottom_right_only.xml" value="0.117" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/round_outline_left_only.xml" value="0.117" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/round_outline_right_only.xml" value="0.117" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/round_outline_top_left_only.xml" value="0.1875" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/round_outline_top_right_only.xml" value="0.117" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/settings_background.xml" value="0.136" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/settings_foreground.xml" value="0.136" />
@@ -40,10 +44,10 @@
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/yellowflag_foreground.xml" value="0.117" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/drawable/yellowtag_background.xml" value="0.117" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout-v31/dialog_add_tarefa.xml" value="0.12552083333333333" />
-        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout/add_tarefa_dialog_spinner_layout.xml" value="0.22" />
-        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout/dialog_add_tarefa.xml" value="0.33" />
-        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout/dialog_choose_tarefa.xml" value="0.25" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout/dialog_add_tarefa.xml" value="0.5823008849557522" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout/dialog_choose_tarefa.xml" value="0.3580827067669173" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout/dialog_edit_tarefa.xml" value="0.25" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout/recyclerview_activity_main.xml" value="0.25" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/layout/scrollview_activity_main.xml" value="0.22" />
@@ -54,6 +58,8 @@
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/mipmap-anydpi-v26/flag.xml" value="0.136" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/mipmap-anydpi-v26/flag_round.xml" value="0.136" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/mipmap-anydpi-v26/greenflag.xml" value="0.126" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/mipmap-anydpi-v26/logo.xml" value="0.1875" />
+        <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/mipmap-anydpi-v26/logo_round.xml" value="0.1875" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/mipmap-anydpi-v26/menu.xml" value="0.136" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/mipmap-anydpi-v26/redtag.xml" value="0.117" />
         <entry key="..\:/Users/Administrator/AndroidStudioProjects/Pomos/app/src/main/res/mipmap-anydpi-v26/settings2_round.xml" value="0.136" />
